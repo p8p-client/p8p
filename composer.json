@@ -1,0 +1,25 @@
+{
+    "authors": [
+        {
+            "name": "Julien Jacottet",
+            "email": "jjacottet@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "php": ">=8.4",
+        "friendsofphp/php-cs-fixer": "^3.88",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.1",
+        "soyuka/pmu": "^0.2.0"
+    },
+    "extra": {
+        "pmu": {
+            "projects": ["./src/*/composer.json"]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "soyuka/pmu": true
+        }
+    }
+}

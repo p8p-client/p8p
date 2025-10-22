@@ -1,0 +1,29 @@
+<?php
+
+/*
+ * This file is part of the P8P project.
+ *
+ * (c) Julien Jacottet <jjacottet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace P8p\CodeGenerator\Config;
+
+use Symfony\Component\TypeInfo\Type;
+
+readonly class Config
+{
+    /**
+     * @param Api[]               $apis
+     * @param array<string, Type> $schemasOverride
+     */
+    public function __construct(
+        public string $baseNamespace,
+        public string $basePath,
+        public array $apis,
+        public array $schemasOverride,
+    ) {
+    }
+}
