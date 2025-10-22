@@ -1,0 +1,40 @@
+name: Release Pipeline
+
+on:
+  push:
+    tags:
+      - '*'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  split:
+    name: Subtree Split
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: Install splitsh
+        run: |
+          curl -L https://github.com/splitsh/lite/releases/download/v1.0.1/lite_linux_amd64.tar.gz > lite_linux_amd64.tar.gz
+          tar -zxpf lite_linux_amd64.tar.gz
+          chmod +x splitsh-lite
+          mv splitsh-lite /usr/local/bin/splitsh-lite
+
+      - name: Split to manyrepo
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: find src -maxdepth 3 -name composer.json -print0 | xargs -I '{}' -n 1 -0 bash subtree.sh {} ${{ github.ref }}
