@@ -39,7 +39,9 @@ class TypeExtractorTest extends TestCase
             baseNamespace: 'P8p\\Sdk',
             basePath: '/path/to/sdk',
             apis: [new Api('apiextensions.k8s.io', 'v1')],
-            schemasOverride: []
+            schemasOverride: [],
+            documentationOutputDir: '/path/to/sdk/docs',
+            documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
         $this->extractor = new TypeExtractor($this->config);
         $this->model = new Model();
@@ -109,7 +111,9 @@ class TypeExtractorTest extends TestCase
             baseNamespace: 'P8p\\Sdk',
             basePath: '/path/to/sdk',
             apis: [],
-            schemasOverride: ['io.k8s.IntOrString' => $overrideType]
+            schemasOverride: ['io.k8s.IntOrString' => $overrideType],
+            documentationOutputDir: '/path/to/sdk/docs',
+            documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
         $this->extractor = new TypeExtractor($this->config);
 

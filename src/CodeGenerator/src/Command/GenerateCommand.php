@@ -14,6 +14,8 @@ namespace P8p\CodeGenerator\Command;
 use P8p\CodeGenerator\Config\Config;
 use P8p\CodeGenerator\Model\Model;
 use P8p\CodeGenerator\Reader\OpenApiV3Reader;
+use P8p\CodeGenerator\Writer\Cleaner;
+use P8p\CodeGenerator\Writer\DocumentationGenerator;
 use P8p\CodeGenerator\Writer\Writer;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -34,6 +36,7 @@ class GenerateCommand extends Command
         $this->setDefinition([
             new InputArgument('baseUrl', InputArgument::OPTIONAL, 'K8S api url', 'http://127.0.0.1:8001/'),
             new InputOption('config', 'c', InputOption::VALUE_REQUIRED, 'Path to config file', self::DEFAULT_CONFIG_PATH),
+            new InputOption('no-doc', null, InputOption::VALUE_NONE, 'Disable documentation generation'),
         ]);
     }
 
@@ -62,12 +65,23 @@ class GenerateCommand extends Command
 
         $io->title('Write php files');
 
-        // @todo cleaner
-        //        $cleaner = new Cleaner($config);
-        //        $cleaner->clean();
+        $cleaner = new Cleaner($config);
+        $cleaner->clean();
 
         $writer = new Writer();
         $writer->write($model);
+
+        if (!$input->getOption('no-doc')) {
+            $io->title('Generate documentation');
+
+            $docGenerator = new DocumentationGenerator($config);
+            $docGenerator->generate($model);
+
+            $io->writeln(sprintf(
+                '<info>Documentation generated at: %s</info>',
+                $config->documentationOutputDir
+            ));
+        }
 
         $io->success('Generation done !');
 

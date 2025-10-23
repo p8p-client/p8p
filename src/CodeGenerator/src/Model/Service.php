@@ -75,4 +75,13 @@ class Service
 
         return $this;
     }
+
+    public function getGroupVersionKind(): GroupVersionKind
+    {
+        foreach ($this->operations as $operation) {
+            return $operation->groupVersionKind;
+        }
+
+        throw new ModelException('No operation found for service '.$this->name);
+    }
 }

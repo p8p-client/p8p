@@ -1,0 +1,13 @@
+# P8P Kubernetes SDK Documentation
+
+This section lists all the APIs that are available through the SDK, providing a complete reference for developers.
+
+---
+{% for group, apis in data %}
+
+## {{ group }}
+{% for api in apis %}
+- [{{ api.name }} ({{ api.version }})](./{{ api.path }})
+{% endfor %}
+{% endfor %}
+

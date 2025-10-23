@@ -32,7 +32,9 @@ class ClassMetadataExtractorTest extends TestCase
             baseNamespace: 'P8p\\Sdk',
             basePath: '/path/to/sdk',
             apis: [new Api('apiextensions.k8s.io', 'v1')],
-            schemasOverride: []
+            schemasOverride: [],
+            documentationOutputDir: '/path/to/sdk/docs',
+            documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
         $this->extractor = new ClassMetadataExtractor($this->config);
     }

@@ -14,7 +14,7 @@ namespace P8p\CodeGenerator\Model;
 readonly class GroupVersionKind
 {
     public function __construct(
-        public ?string $group,
+        public string $group,
         public string $version,
         public string $kind,
     ) {

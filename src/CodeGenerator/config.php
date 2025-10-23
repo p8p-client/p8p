@@ -27,4 +27,6 @@ return new Config(
         'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaPropsOrStringArray' => Type::array(),
         'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaPropsOrArray' => Type::array(),
     ],
+    documentationOutputDir: __DIR__ . '/../../doc/sdk',
+    documentationTemplateDir: __DIR__ . '/templates/documentation',
 );

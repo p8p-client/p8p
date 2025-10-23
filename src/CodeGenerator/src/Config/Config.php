@@ -24,6 +24,8 @@ readonly class Config
         public string $basePath,
         public array $apis,
         public array $schemasOverride,
+        public string $documentationOutputDir,
+        public string $documentationTemplateDir,
     ) {
     }
 }

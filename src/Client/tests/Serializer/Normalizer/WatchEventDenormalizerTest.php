@@ -118,7 +118,7 @@ class WatchEventDenormalizerTest extends TestCase
 
         $this->assertTrue($result);
     }
-    
+
     public function testGetSupportedTypes(): void
     {
         $result = $this->denormalizer->getSupportedTypes(null);
