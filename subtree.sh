@@ -31,7 +31,7 @@ fi
 package=$(jq -r .name "$COMPOSER_JSON_PATH")
 directory=$(dirname "$COMPOSER_JSON_PATH")
 
-# Transform p8p/<package> to p8p-php/<package> for GitHub repository name
+# Transform p8p/<package> to p8p-client/<package> for GitHub repository name
 github_package=$(echo "$package" | sed 's|p8p/|p8p-client/|')
 repository="https://github.com/$github_package"
 
@@ -42,7 +42,5 @@ fi
 
 sha=$(splitsh-lite --prefix="$directory")
 git push $FORCE_FLAG "$package" "$sha":"$GIT_REF"
-
-echo "\n\n\n=======================================\n\n\n"
 
 
