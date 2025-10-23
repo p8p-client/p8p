@@ -16,6 +16,7 @@ return new Config(
         new Api('authentication.k8s.io', 'v1'),
         new Api('authorization.k8s.io', 'v1'),
         new Api('autoscaling', 'v1'),
+        new Api('autoscaling', 'v2'),
         new Api('batch', 'v1'),
         new Api('certificates.k8s.io', 'v1'),
         new Api('coordination.k8s.io', 'v1'),

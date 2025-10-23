@@ -35,6 +35,7 @@ This section lists all the APIs that are available through the SDK, providing a 
 
 ## autoscaling
 - [HorizontalPodAutoscalerApi (v1)](./autoscaling/v1/horizontal-pod-autoscaler-api.md)
+- [HorizontalPodAutoscalerApi (v2)](./autoscaling/v2/horizontal-pod-autoscaler-api.md)
 - [ScaleApi (v1)](./autoscaling/v1/scale-api.md)
 
 ## authentication.k8s.io
