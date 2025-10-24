@@ -1,6 +1,6 @@
 # PodProxyOptionsApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** Core
 - **API Version:** v1

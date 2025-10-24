@@ -1,6 +1,6 @@
 # JobApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** batch
 - **API Version:** v1

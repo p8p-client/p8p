@@ -1,6 +1,6 @@
 # EvictionApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** policy
 - **API Version:** v1

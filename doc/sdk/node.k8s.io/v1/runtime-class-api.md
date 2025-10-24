@@ -1,6 +1,6 @@
 # RuntimeClassApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** node.k8s.io
 - **API Version:** v1

@@ -1,6 +1,6 @@
 # CSINodeApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** storage.k8s.io
 - **API Version:** v1

@@ -1,6 +1,6 @@
 # APIServiceApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** apiregistration.k8s.io
 - **API Version:** v1

@@ -1,6 +1,6 @@
 # EndpointSliceApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** discovery.k8s.io
 - **API Version:** v1

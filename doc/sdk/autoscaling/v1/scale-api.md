@@ -1,6 +1,6 @@
 # ScaleApi
 
-[← Back to Index](index.md)
+[← Back to Index](../../index.md)
 
 - **API Group:** autoscaling
 - **API Version:** v1
