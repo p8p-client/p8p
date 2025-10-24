@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  php-cs-fixer:
+    name: PHP CS Fixer (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.4']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress
+          composer all install
+
+      - name: Run PHP CS Fixer
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff
+
+  phpstan:
+    name: PHPStan (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.4']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress
+          composer all install
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse
+
+  rector:
+    name: Rector (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.4']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress
+          composer all install
+
+      - name: Run Rector (dry-run)
+        run: vendor/bin/rector process --dry-run
+
+  tests:
+    name: Tests (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.4']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress
+          composer all install
+
+      - name: Run Client tests
+        run: cd src/Client && vendor/bin/phpunit
+
+      - name: Run CodeGenerator tests
+        run: cd src/CodeGenerator && vendor/bin/phpunit --coverage-text
+
+      - name: Run Client tests with coverage
+        run: cd src/Client && vendor/bin/phpunit --coverage-text
