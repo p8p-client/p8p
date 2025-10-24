@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1PersistentVolume)
-- [create](#createCoreV1PersistentVolume)
-- [deleteCollection](#deleteCoreV1CollectionPersistentVolume)
-- [read](#readCoreV1PersistentVolume)
-- [replace](#replaceCoreV1PersistentVolume)
-- [delete](#deleteCoreV1PersistentVolume)
-- [patch](#patchCoreV1PersistentVolume)
-- [readStatus](#readCoreV1PersistentVolumeStatus)
-- [replaceStatus](#replaceCoreV1PersistentVolumeStatus)
-- [patchStatus](#patchCoreV1PersistentVolumeStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

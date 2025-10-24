@@ -10,8 +10,8 @@
 
 ## Table of Contents
 
-- [connectGetPodAttach](#connectCoreV1GetNamespacedPodAttach) ⚡
-- [connectPostPodAttach](#connectCoreV1PostNamespacedPodAttach) ⚡
+- [connectGetPodAttach](#connectGetPodAttach) ⚡
+- [connectPostPodAttach](#connectPostPodAttach) ⚡
 
 ---
 

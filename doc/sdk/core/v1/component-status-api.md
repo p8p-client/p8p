@@ -10,8 +10,8 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1ComponentStatus)
-- [read](#readCoreV1ComponentStatus)
+- [list](#list)
+- [read](#read)
 
 ---
 

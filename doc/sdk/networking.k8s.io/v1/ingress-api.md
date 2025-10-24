@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listNetworkingV1IngressForAllNamespaces)
-- [list](#listNetworkingV1NamespacedIngress)
-- [create](#createNetworkingV1NamespacedIngress)
-- [deleteCollection](#deleteNetworkingV1CollectionNamespacedIngress)
-- [read](#readNetworkingV1NamespacedIngress)
-- [replace](#replaceNetworkingV1NamespacedIngress)
-- [delete](#deleteNetworkingV1NamespacedIngress)
-- [patch](#patchNetworkingV1NamespacedIngress)
-- [readStatus](#readNetworkingV1NamespacedIngressStatus)
-- [replaceStatus](#replaceNetworkingV1NamespacedIngressStatus)
-- [patchStatus](#patchNetworkingV1NamespacedIngressStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

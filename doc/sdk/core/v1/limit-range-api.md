@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listCoreV1LimitRangeForAllNamespaces)
-- [list](#listCoreV1NamespacedLimitRange)
-- [create](#createCoreV1NamespacedLimitRange)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedLimitRange)
-- [read](#readCoreV1NamespacedLimitRange)
-- [replace](#replaceCoreV1NamespacedLimitRange)
-- [delete](#deleteCoreV1NamespacedLimitRange)
-- [patch](#patchCoreV1NamespacedLimitRange)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

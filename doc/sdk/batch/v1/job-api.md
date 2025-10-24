@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listBatchV1JobForAllNamespaces)
-- [list](#listBatchV1NamespacedJob)
-- [create](#createBatchV1NamespacedJob)
-- [deleteCollection](#deleteBatchV1CollectionNamespacedJob)
-- [read](#readBatchV1NamespacedJob)
-- [replace](#replaceBatchV1NamespacedJob)
-- [delete](#deleteBatchV1NamespacedJob)
-- [patch](#patchBatchV1NamespacedJob)
-- [readStatus](#readBatchV1NamespacedJobStatus)
-- [replaceStatus](#replaceBatchV1NamespacedJobStatus)
-- [patchStatus](#patchBatchV1NamespacedJobStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

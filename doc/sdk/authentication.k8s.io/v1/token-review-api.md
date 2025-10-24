@@ -10,7 +10,7 @@
 
 ## Table of Contents
 
-- [create](#createAuthenticationV1TokenReview)
+- [create](#create)
 
 ---
 

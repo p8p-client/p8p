@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listNodeV1RuntimeClass)
-- [create](#createNodeV1RuntimeClass)
-- [deleteCollection](#deleteNodeV1CollectionRuntimeClass)
-- [read](#readNodeV1RuntimeClass)
-- [replace](#replaceNodeV1RuntimeClass)
-- [delete](#deleteNodeV1RuntimeClass)
-- [patch](#patchNodeV1RuntimeClass)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

@@ -10,18 +10,18 @@
 
 ## Table of Contents
 
-- [readCoreV1ReplicationController](#readCoreV1NamespacedReplicationControllerScale)
-- [replaceCoreV1ReplicationController](#replaceCoreV1NamespacedReplicationControllerScale)
-- [patchCoreV1ReplicationController](#patchCoreV1NamespacedReplicationControllerScale)
-- [readAppsV1Deployment](#readAppsV1NamespacedDeploymentScale)
-- [replaceAppsV1Deployment](#replaceAppsV1NamespacedDeploymentScale)
-- [patchAppsV1Deployment](#patchAppsV1NamespacedDeploymentScale)
-- [readAppsV1ReplicaSet](#readAppsV1NamespacedReplicaSetScale)
-- [replaceAppsV1ReplicaSet](#replaceAppsV1NamespacedReplicaSetScale)
-- [patchAppsV1ReplicaSet](#patchAppsV1NamespacedReplicaSetScale)
-- [readAppsV1StatefulSet](#readAppsV1NamespacedStatefulSetScale)
-- [replaceAppsV1StatefulSet](#replaceAppsV1NamespacedStatefulSetScale)
-- [patchAppsV1StatefulSet](#patchAppsV1NamespacedStatefulSetScale)
+- [readCoreV1ReplicationController](#readCoreV1ReplicationController)
+- [replaceCoreV1ReplicationController](#replaceCoreV1ReplicationController)
+- [patchCoreV1ReplicationController](#patchCoreV1ReplicationController)
+- [readAppsV1Deployment](#readAppsV1Deployment)
+- [replaceAppsV1Deployment](#replaceAppsV1Deployment)
+- [patchAppsV1Deployment](#patchAppsV1Deployment)
+- [readAppsV1ReplicaSet](#readAppsV1ReplicaSet)
+- [replaceAppsV1ReplicaSet](#replaceAppsV1ReplicaSet)
+- [patchAppsV1ReplicaSet](#patchAppsV1ReplicaSet)
+- [readAppsV1StatefulSet](#readAppsV1StatefulSet)
+- [replaceAppsV1StatefulSet](#replaceAppsV1StatefulSet)
+- [patchAppsV1StatefulSet](#patchAppsV1StatefulSet)
 
 ---
 

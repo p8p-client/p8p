@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listAdmissionregistrationV1ValidatingAdmissionPolicyBinding)
-- [create](#createAdmissionregistrationV1ValidatingAdmissionPolicyBinding)
-- [deleteCollection](#deleteAdmissionregistrationV1CollectionValidatingAdmissionPolicyBinding)
-- [read](#readAdmissionregistrationV1ValidatingAdmissionPolicyBinding)
-- [replace](#replaceAdmissionregistrationV1ValidatingAdmissionPolicyBinding)
-- [delete](#deleteAdmissionregistrationV1ValidatingAdmissionPolicyBinding)
-- [patch](#patchAdmissionregistrationV1ValidatingAdmissionPolicyBinding)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

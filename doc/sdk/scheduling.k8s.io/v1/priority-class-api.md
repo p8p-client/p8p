@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listSchedulingV1PriorityClass)
-- [create](#createSchedulingV1PriorityClass)
-- [deleteCollection](#deleteSchedulingV1CollectionPriorityClass)
-- [read](#readSchedulingV1PriorityClass)
-- [replace](#replaceSchedulingV1PriorityClass)
-- [delete](#deleteSchedulingV1PriorityClass)
-- [patch](#patchSchedulingV1PriorityClass)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

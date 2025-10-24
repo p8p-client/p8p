@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listApiextensionsV1CustomResourceDefinition)
-- [create](#createApiextensionsV1CustomResourceDefinition)
-- [deleteCollection](#deleteApiextensionsV1CollectionCustomResourceDefinition)
-- [read](#readApiextensionsV1CustomResourceDefinition)
-- [replace](#replaceApiextensionsV1CustomResourceDefinition)
-- [delete](#deleteApiextensionsV1CustomResourceDefinition)
-- [patch](#patchApiextensionsV1CustomResourceDefinition)
-- [readStatus](#readApiextensionsV1CustomResourceDefinitionStatus)
-- [replaceStatus](#replaceApiextensionsV1CustomResourceDefinitionStatus)
-- [patchStatus](#patchApiextensionsV1CustomResourceDefinitionStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

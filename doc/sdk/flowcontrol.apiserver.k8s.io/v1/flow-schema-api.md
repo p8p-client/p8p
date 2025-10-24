@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listFlowcontrolApiserverV1FlowSchema)
-- [create](#createFlowcontrolApiserverV1FlowSchema)
-- [deleteCollection](#deleteFlowcontrolApiserverV1CollectionFlowSchema)
-- [read](#readFlowcontrolApiserverV1FlowSchema)
-- [replace](#replaceFlowcontrolApiserverV1FlowSchema)
-- [delete](#deleteFlowcontrolApiserverV1FlowSchema)
-- [patch](#patchFlowcontrolApiserverV1FlowSchema)
-- [readStatus](#readFlowcontrolApiserverV1FlowSchemaStatus)
-- [replaceStatus](#replaceFlowcontrolApiserverV1FlowSchemaStatus)
-- [patchStatus](#patchFlowcontrolApiserverV1FlowSchemaStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

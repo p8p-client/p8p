@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1Node)
-- [create](#createCoreV1Node)
-- [deleteCollection](#deleteCoreV1CollectionNode)
-- [read](#readCoreV1Node)
-- [replace](#replaceCoreV1Node)
-- [delete](#deleteCoreV1Node)
-- [patch](#patchCoreV1Node)
-- [readStatus](#readCoreV1NodeStatus)
-- [replaceStatus](#replaceCoreV1NodeStatus)
-- [patchStatus](#patchCoreV1NodeStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listDiscoveryV1EndpointSliceForAllNamespaces)
-- [list](#listDiscoveryV1NamespacedEndpointSlice)
-- [create](#createDiscoveryV1NamespacedEndpointSlice)
-- [deleteCollection](#deleteDiscoveryV1CollectionNamespacedEndpointSlice)
-- [read](#readDiscoveryV1NamespacedEndpointSlice)
-- [replace](#replaceDiscoveryV1NamespacedEndpointSlice)
-- [delete](#deleteDiscoveryV1NamespacedEndpointSlice)
-- [patch](#patchDiscoveryV1NamespacedEndpointSlice)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

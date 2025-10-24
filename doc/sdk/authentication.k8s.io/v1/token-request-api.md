@@ -10,7 +10,7 @@
 
 ## Table of Contents
 
-- [createCoreV1ServiceAccountToken](#createCoreV1NamespacedServiceAccountToken)
+- [createCoreV1ServiceAccountToken](#createCoreV1ServiceAccountToken)
 
 ---
 

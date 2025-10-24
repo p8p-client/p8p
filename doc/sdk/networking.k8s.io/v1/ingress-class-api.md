@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listNetworkingV1IngressClass)
-- [create](#createNetworkingV1IngressClass)
-- [deleteCollection](#deleteNetworkingV1CollectionIngressClass)
-- [read](#readNetworkingV1IngressClass)
-- [replace](#replaceNetworkingV1IngressClass)
-- [delete](#deleteNetworkingV1IngressClass)
-- [patch](#patchNetworkingV1IngressClass)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

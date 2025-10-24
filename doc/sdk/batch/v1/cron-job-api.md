@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listBatchV1CronJobForAllNamespaces)
-- [list](#listBatchV1NamespacedCronJob)
-- [create](#createBatchV1NamespacedCronJob)
-- [deleteCollection](#deleteBatchV1CollectionNamespacedCronJob)
-- [read](#readBatchV1NamespacedCronJob)
-- [replace](#replaceBatchV1NamespacedCronJob)
-- [delete](#deleteBatchV1NamespacedCronJob)
-- [patch](#patchBatchV1NamespacedCronJob)
-- [readStatus](#readBatchV1NamespacedCronJobStatus)
-- [replaceStatus](#replaceBatchV1NamespacedCronJobStatus)
-- [patchStatus](#patchBatchV1NamespacedCronJobStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

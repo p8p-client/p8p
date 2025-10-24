@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listAutoscalingV2HorizontalPodAutoscalerForAllNamespaces)
-- [list](#listAutoscalingV2NamespacedHorizontalPodAutoscaler)
-- [create](#createAutoscalingV2NamespacedHorizontalPodAutoscaler)
-- [deleteCollection](#deleteAutoscalingV2CollectionNamespacedHorizontalPodAutoscaler)
-- [read](#readAutoscalingV2NamespacedHorizontalPodAutoscaler)
-- [replace](#replaceAutoscalingV2NamespacedHorizontalPodAutoscaler)
-- [delete](#deleteAutoscalingV2NamespacedHorizontalPodAutoscaler)
-- [patch](#patchAutoscalingV2NamespacedHorizontalPodAutoscaler)
-- [readStatus](#readAutoscalingV2NamespacedHorizontalPodAutoscalerStatus)
-- [replaceStatus](#replaceAutoscalingV2NamespacedHorizontalPodAutoscalerStatus)
-- [patchStatus](#patchAutoscalingV2NamespacedHorizontalPodAutoscalerStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

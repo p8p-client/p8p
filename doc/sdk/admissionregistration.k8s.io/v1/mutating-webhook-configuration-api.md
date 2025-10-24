@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listAdmissionregistrationV1MutatingWebhookConfiguration)
-- [create](#createAdmissionregistrationV1MutatingWebhookConfiguration)
-- [deleteCollection](#deleteAdmissionregistrationV1CollectionMutatingWebhookConfiguration)
-- [read](#readAdmissionregistrationV1MutatingWebhookConfiguration)
-- [replace](#replaceAdmissionregistrationV1MutatingWebhookConfiguration)
-- [delete](#deleteAdmissionregistrationV1MutatingWebhookConfiguration)
-- [patch](#patchAdmissionregistrationV1MutatingWebhookConfiguration)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

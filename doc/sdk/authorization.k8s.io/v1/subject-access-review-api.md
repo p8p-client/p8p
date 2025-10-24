@@ -10,7 +10,7 @@
 
 ## Table of Contents
 
-- [create](#createAuthorizationV1SubjectAccessReview)
+- [create](#create)
 
 ---
 

@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listApiregistrationV1APIService)
-- [create](#createApiregistrationV1APIService)
-- [deleteCollection](#deleteApiregistrationV1CollectionAPIService)
-- [read](#readApiregistrationV1APIService)
-- [replace](#replaceApiregistrationV1APIService)
-- [delete](#deleteApiregistrationV1APIService)
-- [patch](#patchApiregistrationV1APIService)
-- [readStatus](#readApiregistrationV1APIServiceStatus)
-- [replaceStatus](#replaceApiregistrationV1APIServiceStatus)
-- [patchStatus](#patchApiregistrationV1APIServiceStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

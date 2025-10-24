@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listStorageV1VolumeAttachment)
-- [create](#createStorageV1VolumeAttachment)
-- [deleteCollection](#deleteStorageV1CollectionVolumeAttachment)
-- [read](#readStorageV1VolumeAttachment)
-- [replace](#replaceStorageV1VolumeAttachment)
-- [delete](#deleteStorageV1VolumeAttachment)
-- [patch](#patchStorageV1VolumeAttachment)
-- [readStatus](#readStorageV1VolumeAttachmentStatus)
-- [replaceStatus](#replaceStorageV1VolumeAttachmentStatus)
-- [patchStatus](#patchStorageV1VolumeAttachmentStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

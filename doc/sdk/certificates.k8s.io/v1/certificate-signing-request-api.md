@@ -10,19 +10,19 @@
 
 ## Table of Contents
 
-- [list](#listCertificatesV1CertificateSigningRequest)
-- [create](#createCertificatesV1CertificateSigningRequest)
-- [deleteCollection](#deleteCertificatesV1CollectionCertificateSigningRequest)
-- [read](#readCertificatesV1CertificateSigningRequest)
-- [replace](#replaceCertificatesV1CertificateSigningRequest)
-- [delete](#deleteCertificatesV1CertificateSigningRequest)
-- [patch](#patchCertificatesV1CertificateSigningRequest)
-- [readApproval](#readCertificatesV1CertificateSigningRequestApproval)
-- [replaceApproval](#replaceCertificatesV1CertificateSigningRequestApproval)
-- [patchApproval](#patchCertificatesV1CertificateSigningRequestApproval)
-- [readStatus](#readCertificatesV1CertificateSigningRequestStatus)
-- [replaceStatus](#replaceCertificatesV1CertificateSigningRequestStatus)
-- [patchStatus](#patchCertificatesV1CertificateSigningRequestStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readApproval](#readApproval)
+- [replaceApproval](#replaceApproval)
+- [patchApproval](#patchApproval)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

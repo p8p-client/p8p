@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listCoreV1EndpointsForAllNamespaces)
-- [list](#listCoreV1NamespacedEndpoints)
-- [create](#createCoreV1NamespacedEndpoints)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedEndpoints)
-- [read](#readCoreV1NamespacedEndpoints)
-- [replace](#replaceCoreV1NamespacedEndpoints)
-- [delete](#deleteCoreV1NamespacedEndpoints)
-- [patch](#patchCoreV1NamespacedEndpoints)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

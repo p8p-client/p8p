@@ -10,8 +10,8 @@
 
 ## Table of Contents
 
-- [connectGetPodExec](#connectCoreV1GetNamespacedPodExec) ⚡
-- [connectPostPodExec](#connectCoreV1PostNamespacedPodExec) ⚡
+- [connectGetPodExec](#connectGetPodExec) ⚡
+- [connectPostPodExec](#connectPostPodExec) ⚡
 
 ---
 

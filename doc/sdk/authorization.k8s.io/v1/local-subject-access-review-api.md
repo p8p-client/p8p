@@ -10,7 +10,7 @@
 
 ## Table of Contents
 
-- [create](#createAuthorizationV1NamespacedLocalSubjectAccessReview)
+- [create](#create)
 
 ---
 

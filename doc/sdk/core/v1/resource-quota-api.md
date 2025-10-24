@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedResourceQuota)
-- [create](#createCoreV1NamespacedResourceQuota)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedResourceQuota)
-- [read](#readCoreV1NamespacedResourceQuota)
-- [replace](#replaceCoreV1NamespacedResourceQuota)
-- [delete](#deleteCoreV1NamespacedResourceQuota)
-- [patch](#patchCoreV1NamespacedResourceQuota)
-- [readStatus](#readCoreV1NamespacedResourceQuotaStatus)
-- [replaceStatus](#replaceCoreV1NamespacedResourceQuotaStatus)
-- [patchStatus](#patchCoreV1NamespacedResourceQuotaStatus)
-- [listForAllNamespaces](#listCoreV1ResourceQuotaForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

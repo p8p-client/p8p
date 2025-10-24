@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [list](#listPolicyV1NamespacedPodDisruptionBudget)
-- [create](#createPolicyV1NamespacedPodDisruptionBudget)
-- [deleteCollection](#deletePolicyV1CollectionNamespacedPodDisruptionBudget)
-- [read](#readPolicyV1NamespacedPodDisruptionBudget)
-- [replace](#replacePolicyV1NamespacedPodDisruptionBudget)
-- [delete](#deletePolicyV1NamespacedPodDisruptionBudget)
-- [patch](#patchPolicyV1NamespacedPodDisruptionBudget)
-- [readStatus](#readPolicyV1NamespacedPodDisruptionBudgetStatus)
-- [replaceStatus](#replacePolicyV1NamespacedPodDisruptionBudgetStatus)
-- [patchStatus](#patchPolicyV1NamespacedPodDisruptionBudgetStatus)
-- [listForAllNamespaces](#listPolicyV1PodDisruptionBudgetForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

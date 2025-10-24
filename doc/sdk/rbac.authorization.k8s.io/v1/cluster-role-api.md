@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listRbacAuthorizationV1ClusterRole)
-- [create](#createRbacAuthorizationV1ClusterRole)
-- [deleteCollection](#deleteRbacAuthorizationV1CollectionClusterRole)
-- [read](#readRbacAuthorizationV1ClusterRole)
-- [replace](#replaceRbacAuthorizationV1ClusterRole)
-- [delete](#deleteRbacAuthorizationV1ClusterRole)
-- [patch](#patchRbacAuthorizationV1ClusterRole)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

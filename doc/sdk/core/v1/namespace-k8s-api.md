@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1Namespace)
-- [create](#createCoreV1Namespace)
-- [read](#readCoreV1Namespace)
-- [replace](#replaceCoreV1Namespace)
-- [delete](#deleteCoreV1Namespace)
-- [patch](#patchCoreV1Namespace)
-- [replaceFinalize](#replaceCoreV1NamespaceFinalize)
-- [readStatus](#readCoreV1NamespaceStatus)
-- [replaceStatus](#replaceCoreV1NamespaceStatus)
-- [patchStatus](#patchCoreV1NamespaceStatus)
+- [list](#list)
+- [create](#create)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [replaceFinalize](#replaceFinalize)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

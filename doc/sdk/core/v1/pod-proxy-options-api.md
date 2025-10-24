@@ -10,20 +10,20 @@
 
 ## Table of Contents
 
-- [connectGetPodProxy](#connectCoreV1GetNamespacedPodProxy) ⚡
-- [connectPutPodProxy](#connectCoreV1PutNamespacedPodProxy) ⚡
-- [connectPostPodProxy](#connectCoreV1PostNamespacedPodProxy) ⚡
-- [connectDeletePodProxy](#connectCoreV1DeleteNamespacedPodProxy) ⚡
-- [connectOptionsPodProxy](#connectCoreV1OptionsNamespacedPodProxy) ⚡
-- [connectHeadPodProxy](#connectCoreV1HeadNamespacedPodProxy) ⚡
-- [connectPatchPodProxy](#connectCoreV1PatchNamespacedPodProxy) ⚡
-- [connectGetPodProxyWithPath](#connectCoreV1GetNamespacedPodProxyWithPath) ⚡
-- [connectPutPodProxyWithPath](#connectCoreV1PutNamespacedPodProxyWithPath) ⚡
-- [connectPostPodProxyWithPath](#connectCoreV1PostNamespacedPodProxyWithPath) ⚡
-- [connectDeletePodProxyWithPath](#connectCoreV1DeleteNamespacedPodProxyWithPath) ⚡
-- [connectOptionsPodProxyWithPath](#connectCoreV1OptionsNamespacedPodProxyWithPath) ⚡
-- [connectHeadPodProxyWithPath](#connectCoreV1HeadNamespacedPodProxyWithPath) ⚡
-- [connectPatchPodProxyWithPath](#connectCoreV1PatchNamespacedPodProxyWithPath) ⚡
+- [connectGetPodProxy](#connectGetPodProxy) ⚡
+- [connectPutPodProxy](#connectPutPodProxy) ⚡
+- [connectPostPodProxy](#connectPostPodProxy) ⚡
+- [connectDeletePodProxy](#connectDeletePodProxy) ⚡
+- [connectOptionsPodProxy](#connectOptionsPodProxy) ⚡
+- [connectHeadPodProxy](#connectHeadPodProxy) ⚡
+- [connectPatchPodProxy](#connectPatchPodProxy) ⚡
+- [connectGetPodProxyWithPath](#connectGetPodProxyWithPath) ⚡
+- [connectPutPodProxyWithPath](#connectPutPodProxyWithPath) ⚡
+- [connectPostPodProxyWithPath](#connectPostPodProxyWithPath) ⚡
+- [connectDeletePodProxyWithPath](#connectDeletePodProxyWithPath) ⚡
+- [connectOptionsPodProxyWithPath](#connectOptionsPodProxyWithPath) ⚡
+- [connectHeadPodProxyWithPath](#connectHeadPodProxyWithPath) ⚡
+- [connectPatchPodProxyWithPath](#connectPatchPodProxyWithPath) ⚡
 
 ---
 

@@ -10,20 +10,20 @@
 
 ## Table of Contents
 
-- [connectGetServiceProxy](#connectCoreV1GetNamespacedServiceProxy) ⚡
-- [connectPutServiceProxy](#connectCoreV1PutNamespacedServiceProxy) ⚡
-- [connectPostServiceProxy](#connectCoreV1PostNamespacedServiceProxy) ⚡
-- [connectDeleteServiceProxy](#connectCoreV1DeleteNamespacedServiceProxy) ⚡
-- [connectOptionsServiceProxy](#connectCoreV1OptionsNamespacedServiceProxy) ⚡
-- [connectHeadServiceProxy](#connectCoreV1HeadNamespacedServiceProxy) ⚡
-- [connectPatchServiceProxy](#connectCoreV1PatchNamespacedServiceProxy) ⚡
-- [connectGetServiceProxyWithPath](#connectCoreV1GetNamespacedServiceProxyWithPath) ⚡
-- [connectPutServiceProxyWithPath](#connectCoreV1PutNamespacedServiceProxyWithPath) ⚡
-- [connectPostServiceProxyWithPath](#connectCoreV1PostNamespacedServiceProxyWithPath) ⚡
-- [connectDeleteServiceProxyWithPath](#connectCoreV1DeleteNamespacedServiceProxyWithPath) ⚡
-- [connectOptionsServiceProxyWithPath](#connectCoreV1OptionsNamespacedServiceProxyWithPath) ⚡
-- [connectHeadServiceProxyWithPath](#connectCoreV1HeadNamespacedServiceProxyWithPath) ⚡
-- [connectPatchServiceProxyWithPath](#connectCoreV1PatchNamespacedServiceProxyWithPath) ⚡
+- [connectGetServiceProxy](#connectGetServiceProxy) ⚡
+- [connectPutServiceProxy](#connectPutServiceProxy) ⚡
+- [connectPostServiceProxy](#connectPostServiceProxy) ⚡
+- [connectDeleteServiceProxy](#connectDeleteServiceProxy) ⚡
+- [connectOptionsServiceProxy](#connectOptionsServiceProxy) ⚡
+- [connectHeadServiceProxy](#connectHeadServiceProxy) ⚡
+- [connectPatchServiceProxy](#connectPatchServiceProxy) ⚡
+- [connectGetServiceProxyWithPath](#connectGetServiceProxyWithPath) ⚡
+- [connectPutServiceProxyWithPath](#connectPutServiceProxyWithPath) ⚡
+- [connectPostServiceProxyWithPath](#connectPostServiceProxyWithPath) ⚡
+- [connectDeleteServiceProxyWithPath](#connectDeleteServiceProxyWithPath) ⚡
+- [connectOptionsServiceProxyWithPath](#connectOptionsServiceProxyWithPath) ⚡
+- [connectHeadServiceProxyWithPath](#connectHeadServiceProxyWithPath) ⚡
+- [connectPatchServiceProxyWithPath](#connectPatchServiceProxyWithPath) ⚡
 
 ---
 

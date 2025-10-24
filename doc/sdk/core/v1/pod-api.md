@@ -10,21 +10,21 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedPod)
-- [create](#createCoreV1NamespacedPod)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedPod)
-- [read](#readCoreV1NamespacedPod)
-- [replace](#replaceCoreV1NamespacedPod)
-- [delete](#deleteCoreV1NamespacedPod)
-- [patch](#patchCoreV1NamespacedPod)
-- [readEphemeralcontainers](#readCoreV1NamespacedPodEphemeralcontainers)
-- [replaceEphemeralcontainers](#replaceCoreV1NamespacedPodEphemeralcontainers)
-- [patchEphemeralcontainers](#patchCoreV1NamespacedPodEphemeralcontainers)
-- [readLog](#readCoreV1NamespacedPodLog)
-- [readStatus](#readCoreV1NamespacedPodStatus)
-- [replaceStatus](#replaceCoreV1NamespacedPodStatus)
-- [patchStatus](#patchCoreV1NamespacedPodStatus)
-- [listForAllNamespaces](#listCoreV1PodForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readEphemeralcontainers](#readEphemeralcontainers)
+- [replaceEphemeralcontainers](#replaceEphemeralcontainers)
+- [patchEphemeralcontainers](#patchEphemeralcontainers)
+- [readLog](#readLog)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

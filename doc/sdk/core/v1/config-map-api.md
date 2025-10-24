@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listCoreV1ConfigMapForAllNamespaces)
-- [list](#listCoreV1NamespacedConfigMap)
-- [create](#createCoreV1NamespacedConfigMap)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedConfigMap)
-- [read](#readCoreV1NamespacedConfigMap)
-- [replace](#replaceCoreV1NamespacedConfigMap)
-- [delete](#deleteCoreV1NamespacedConfigMap)
-- [patch](#patchCoreV1NamespacedConfigMap)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

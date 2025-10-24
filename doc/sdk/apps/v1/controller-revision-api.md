@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listAppsV1ControllerRevisionForAllNamespaces)
-- [list](#listAppsV1NamespacedControllerRevision)
-- [create](#createAppsV1NamespacedControllerRevision)
-- [deleteCollection](#deleteAppsV1CollectionNamespacedControllerRevision)
-- [read](#readAppsV1NamespacedControllerRevision)
-- [replace](#replaceAppsV1NamespacedControllerRevision)
-- [delete](#deleteAppsV1NamespacedControllerRevision)
-- [patch](#patchAppsV1NamespacedControllerRevision)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

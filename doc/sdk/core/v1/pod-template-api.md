@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedPodTemplate)
-- [create](#createCoreV1NamespacedPodTemplate)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedPodTemplate)
-- [read](#readCoreV1NamespacedPodTemplate)
-- [replace](#replaceCoreV1NamespacedPodTemplate)
-- [delete](#deleteCoreV1NamespacedPodTemplate)
-- [patch](#patchCoreV1NamespacedPodTemplate)
-- [listForAllNamespaces](#listCoreV1PodTemplateForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

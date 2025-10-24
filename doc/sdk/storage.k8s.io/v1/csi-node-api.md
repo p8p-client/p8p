@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listStorageV1CSINode)
-- [create](#createStorageV1CSINode)
-- [deleteCollection](#deleteStorageV1CollectionCSINode)
-- [read](#readStorageV1CSINode)
-- [replace](#replaceStorageV1CSINode)
-- [delete](#deleteStorageV1CSINode)
-- [patch](#patchStorageV1CSINode)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

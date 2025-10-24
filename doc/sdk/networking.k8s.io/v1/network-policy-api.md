@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [list](#listNetworkingV1NamespacedNetworkPolicy)
-- [create](#createNetworkingV1NamespacedNetworkPolicy)
-- [deleteCollection](#deleteNetworkingV1CollectionNamespacedNetworkPolicy)
-- [read](#readNetworkingV1NamespacedNetworkPolicy)
-- [replace](#replaceNetworkingV1NamespacedNetworkPolicy)
-- [delete](#deleteNetworkingV1NamespacedNetworkPolicy)
-- [patch](#patchNetworkingV1NamespacedNetworkPolicy)
-- [listForAllNamespaces](#listNetworkingV1NetworkPolicyForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

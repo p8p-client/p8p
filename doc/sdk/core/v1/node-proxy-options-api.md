@@ -10,20 +10,20 @@
 
 ## Table of Contents
 
-- [connectGetNodeProxy](#connectCoreV1GetNodeProxy) ⚡
-- [connectPutNodeProxy](#connectCoreV1PutNodeProxy) ⚡
-- [connectPostNodeProxy](#connectCoreV1PostNodeProxy) ⚡
-- [connectDeleteNodeProxy](#connectCoreV1DeleteNodeProxy) ⚡
-- [connectOptionsNodeProxy](#connectCoreV1OptionsNodeProxy) ⚡
-- [connectHeadNodeProxy](#connectCoreV1HeadNodeProxy) ⚡
-- [connectPatchNodeProxy](#connectCoreV1PatchNodeProxy) ⚡
-- [connectGetNodeProxyWithPath](#connectCoreV1GetNodeProxyWithPath) ⚡
-- [connectPutNodeProxyWithPath](#connectCoreV1PutNodeProxyWithPath) ⚡
-- [connectPostNodeProxyWithPath](#connectCoreV1PostNodeProxyWithPath) ⚡
-- [connectDeleteNodeProxyWithPath](#connectCoreV1DeleteNodeProxyWithPath) ⚡
-- [connectOptionsNodeProxyWithPath](#connectCoreV1OptionsNodeProxyWithPath) ⚡
-- [connectHeadNodeProxyWithPath](#connectCoreV1HeadNodeProxyWithPath) ⚡
-- [connectPatchNodeProxyWithPath](#connectCoreV1PatchNodeProxyWithPath) ⚡
+- [connectGetNodeProxy](#connectGetNodeProxy) ⚡
+- [connectPutNodeProxy](#connectPutNodeProxy) ⚡
+- [connectPostNodeProxy](#connectPostNodeProxy) ⚡
+- [connectDeleteNodeProxy](#connectDeleteNodeProxy) ⚡
+- [connectOptionsNodeProxy](#connectOptionsNodeProxy) ⚡
+- [connectHeadNodeProxy](#connectHeadNodeProxy) ⚡
+- [connectPatchNodeProxy](#connectPatchNodeProxy) ⚡
+- [connectGetNodeProxyWithPath](#connectGetNodeProxyWithPath) ⚡
+- [connectPutNodeProxyWithPath](#connectPutNodeProxyWithPath) ⚡
+- [connectPostNodeProxyWithPath](#connectPostNodeProxyWithPath) ⚡
+- [connectDeleteNodeProxyWithPath](#connectDeleteNodeProxyWithPath) ⚡
+- [connectOptionsNodeProxyWithPath](#connectOptionsNodeProxyWithPath) ⚡
+- [connectHeadNodeProxyWithPath](#connectHeadNodeProxyWithPath) ⚡
+- [connectPatchNodeProxyWithPath](#connectPatchNodeProxyWithPath) ⚡
 
 ---
 

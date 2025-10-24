@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedServiceAccount)
-- [create](#createCoreV1NamespacedServiceAccount)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedServiceAccount)
-- [read](#readCoreV1NamespacedServiceAccount)
-- [replace](#replaceCoreV1NamespacedServiceAccount)
-- [delete](#deleteCoreV1NamespacedServiceAccount)
-- [patch](#patchCoreV1NamespacedServiceAccount)
-- [listForAllNamespaces](#listCoreV1ServiceAccountForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

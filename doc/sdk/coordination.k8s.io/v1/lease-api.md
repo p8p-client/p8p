@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listCoordinationV1LeaseForAllNamespaces)
-- [list](#listCoordinationV1NamespacedLease)
-- [create](#createCoordinationV1NamespacedLease)
-- [deleteCollection](#deleteCoordinationV1CollectionNamespacedLease)
-- [read](#readCoordinationV1NamespacedLease)
-- [replace](#replaceCoordinationV1NamespacedLease)
-- [delete](#deleteCoordinationV1NamespacedLease)
-- [patch](#patchCoordinationV1NamespacedLease)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

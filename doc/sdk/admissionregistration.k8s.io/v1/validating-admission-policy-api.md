@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listAdmissionregistrationV1ValidatingAdmissionPolicy)
-- [create](#createAdmissionregistrationV1ValidatingAdmissionPolicy)
-- [deleteCollection](#deleteAdmissionregistrationV1CollectionValidatingAdmissionPolicy)
-- [read](#readAdmissionregistrationV1ValidatingAdmissionPolicy)
-- [replace](#replaceAdmissionregistrationV1ValidatingAdmissionPolicy)
-- [delete](#deleteAdmissionregistrationV1ValidatingAdmissionPolicy)
-- [patch](#patchAdmissionregistrationV1ValidatingAdmissionPolicy)
-- [readStatus](#readAdmissionregistrationV1ValidatingAdmissionPolicyStatus)
-- [replaceStatus](#replaceAdmissionregistrationV1ValidatingAdmissionPolicyStatus)
-- [patchStatus](#patchAdmissionregistrationV1ValidatingAdmissionPolicyStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

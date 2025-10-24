@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listAppsV1DeploymentForAllNamespaces)
-- [list](#listAppsV1NamespacedDeployment)
-- [create](#createAppsV1NamespacedDeployment)
-- [deleteCollection](#deleteAppsV1CollectionNamespacedDeployment)
-- [read](#readAppsV1NamespacedDeployment)
-- [replace](#replaceAppsV1NamespacedDeployment)
-- [delete](#deleteAppsV1NamespacedDeployment)
-- [patch](#patchAppsV1NamespacedDeployment)
-- [readStatus](#readAppsV1NamespacedDeploymentStatus)
-- [replaceStatus](#replaceAppsV1NamespacedDeploymentStatus)
-- [patchStatus](#patchAppsV1NamespacedDeploymentStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

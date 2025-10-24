@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listStorageV1StorageClass)
-- [create](#createStorageV1StorageClass)
-- [deleteCollection](#deleteStorageV1CollectionStorageClass)
-- [read](#readStorageV1StorageClass)
-- [replace](#replaceStorageV1StorageClass)
-- [delete](#deleteStorageV1StorageClass)
-- [patch](#patchStorageV1StorageClass)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

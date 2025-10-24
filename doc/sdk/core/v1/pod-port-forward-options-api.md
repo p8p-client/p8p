@@ -10,8 +10,8 @@
 
 ## Table of Contents
 
-- [connectGetPodPortforward](#connectCoreV1GetNamespacedPodPortforward) ⚡
-- [connectPostPodPortforward](#connectCoreV1PostNamespacedPodPortforward) ⚡
+- [connectGetPodPortforward](#connectGetPodPortforward) ⚡
+- [connectPostPodPortforward](#connectPostPodPortforward) ⚡
 
 ---
 

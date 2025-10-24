@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [list](#listRbacAuthorizationV1NamespacedRoleBinding)
-- [create](#createRbacAuthorizationV1NamespacedRoleBinding)
-- [deleteCollection](#deleteRbacAuthorizationV1CollectionNamespacedRoleBinding)
-- [read](#readRbacAuthorizationV1NamespacedRoleBinding)
-- [replace](#replaceRbacAuthorizationV1NamespacedRoleBinding)
-- [delete](#deleteRbacAuthorizationV1NamespacedRoleBinding)
-- [patch](#patchRbacAuthorizationV1NamespacedRoleBinding)
-- [listForAllNamespaces](#listRbacAuthorizationV1RoleBindingForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

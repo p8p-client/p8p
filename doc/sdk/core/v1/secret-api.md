@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedSecret)
-- [create](#createCoreV1NamespacedSecret)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedSecret)
-- [read](#readCoreV1NamespacedSecret)
-- [replace](#replaceCoreV1NamespacedSecret)
-- [delete](#deleteCoreV1NamespacedSecret)
-- [patch](#patchCoreV1NamespacedSecret)
-- [listForAllNamespaces](#listCoreV1SecretForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

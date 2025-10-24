@@ -10,8 +10,8 @@
 
 ## Table of Contents
 
-- [create](#createCoreV1NamespacedBinding)
-- [createPod](#createCoreV1NamespacedPodBinding)
+- [create](#create)
+- [createPod](#createPod)
 
 ---
 

@@ -10,16 +10,16 @@
 
 ## Table of Contents
 
-- [list](#listFlowcontrolApiserverV1PriorityLevelConfiguration)
-- [create](#createFlowcontrolApiserverV1PriorityLevelConfiguration)
-- [deleteCollection](#deleteFlowcontrolApiserverV1CollectionPriorityLevelConfiguration)
-- [read](#readFlowcontrolApiserverV1PriorityLevelConfiguration)
-- [replace](#replaceFlowcontrolApiserverV1PriorityLevelConfiguration)
-- [delete](#deleteFlowcontrolApiserverV1PriorityLevelConfiguration)
-- [patch](#patchFlowcontrolApiserverV1PriorityLevelConfiguration)
-- [readStatus](#readFlowcontrolApiserverV1PriorityLevelConfigurationStatus)
-- [replaceStatus](#replaceFlowcontrolApiserverV1PriorityLevelConfigurationStatus)
-- [patchStatus](#patchFlowcontrolApiserverV1PriorityLevelConfigurationStatus)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
 
 ---
 

@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedReplicationController)
-- [create](#createCoreV1NamespacedReplicationController)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedReplicationController)
-- [read](#readCoreV1NamespacedReplicationController)
-- [replace](#replaceCoreV1NamespacedReplicationController)
-- [delete](#deleteCoreV1NamespacedReplicationController)
-- [patch](#patchCoreV1NamespacedReplicationController)
-- [readStatus](#readCoreV1NamespacedReplicationControllerStatus)
-- [replaceStatus](#replaceCoreV1NamespacedReplicationControllerStatus)
-- [patchStatus](#patchCoreV1NamespacedReplicationControllerStatus)
-- [listForAllNamespaces](#listCoreV1ReplicationControllerForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

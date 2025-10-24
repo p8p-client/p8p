@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-- [list](#listCoreV1NamespacedPersistentVolumeClaim)
-- [create](#createCoreV1NamespacedPersistentVolumeClaim)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedPersistentVolumeClaim)
-- [read](#readCoreV1NamespacedPersistentVolumeClaim)
-- [replace](#replaceCoreV1NamespacedPersistentVolumeClaim)
-- [delete](#deleteCoreV1NamespacedPersistentVolumeClaim)
-- [patch](#patchCoreV1NamespacedPersistentVolumeClaim)
-- [readStatus](#readCoreV1NamespacedPersistentVolumeClaimStatus)
-- [replaceStatus](#replaceCoreV1NamespacedPersistentVolumeClaimStatus)
-- [patchStatus](#patchCoreV1NamespacedPersistentVolumeClaimStatus)
-- [listForAllNamespaces](#listCoreV1PersistentVolumeClaimForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
+- [readStatus](#readStatus)
+- [replaceStatus](#replaceStatus)
+- [patchStatus](#patchStatus)
+- [listForAllNamespaces](#listForAllNamespaces)
 
 ---
 

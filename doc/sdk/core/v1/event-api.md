@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listCoreV1EventForAllNamespaces)
-- [list](#listCoreV1NamespacedEvent)
-- [create](#createCoreV1NamespacedEvent)
-- [deleteCollection](#deleteCoreV1CollectionNamespacedEvent)
-- [read](#readCoreV1NamespacedEvent)
-- [replace](#replaceCoreV1NamespacedEvent)
-- [delete](#deleteCoreV1NamespacedEvent)
-- [patch](#patchCoreV1NamespacedEvent)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

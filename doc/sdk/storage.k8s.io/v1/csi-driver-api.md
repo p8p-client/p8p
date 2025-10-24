@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [list](#listStorageV1CSIDriver)
-- [create](#createStorageV1CSIDriver)
-- [deleteCollection](#deleteStorageV1CollectionCSIDriver)
-- [read](#readStorageV1CSIDriver)
-- [replace](#replaceStorageV1CSIDriver)
-- [delete](#deleteStorageV1CSIDriver)
-- [patch](#patchStorageV1CSIDriver)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 

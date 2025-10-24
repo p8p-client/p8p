@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [listForAllNamespaces](#listStorageV1CSIStorageCapacityForAllNamespaces)
-- [list](#listStorageV1NamespacedCSIStorageCapacity)
-- [create](#createStorageV1NamespacedCSIStorageCapacity)
-- [deleteCollection](#deleteStorageV1CollectionNamespacedCSIStorageCapacity)
-- [read](#readStorageV1NamespacedCSIStorageCapacity)
-- [replace](#replaceStorageV1NamespacedCSIStorageCapacity)
-- [delete](#deleteStorageV1NamespacedCSIStorageCapacity)
-- [patch](#patchStorageV1NamespacedCSIStorageCapacity)
+- [listForAllNamespaces](#listForAllNamespaces)
+- [list](#list)
+- [create](#create)
+- [deleteCollection](#deleteCollection)
+- [read](#read)
+- [replace](#replace)
+- [delete](#delete)
+- [patch](#patch)
 
 ---
 
