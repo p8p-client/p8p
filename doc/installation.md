@@ -71,7 +71,32 @@ This method automatically reads:
 - The CA certificate in `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt`
 
 
-### Option 3: Custom Auth
+### Option 3: KubeConfig File
+
+This is the standard configuration file used by `kubectl` (usually located at `~/.kube/config`).
+
+Load credentials from a kubeconfig file:
+
+```php
+use P8p\Client\ClientFactory;
+
+// Use default context from kubeconfig
+$client = ClientFactory::fromKubeConfig('/path/to/kubeconfig')->getClient();
+
+// Use specific context
+$client = ClientFactory::fromKubeConfig(
+    path: '/path/to/kubeconfig',
+    context: 'my-context'
+)->getClient();
+```
+
+**Note**: KubeConfig support requires the `symfony/yaml` package:
+
+```bash
+composer require symfony/yaml
+```
+
+### Option 4: Custom Auth
 
 For more specific needs you can use the different options of `ClientFactory::fromUrl`
 

@@ -15,9 +15,9 @@ The codebase is organized into three interconnected packages:
 - **Namespace**: `P8p\Client`
 - **Key Components**:
   - `Client`: Main HTTP client that handles requests/responses using Symfony HttpClient and Serializer
-  - `ClientFactory`: Creates configured client instances from URL credentials or in-cluster configuration
+  - `ClientFactory`: Creates configured client instances from URL credentials, kubeconfig file, or in-cluster configuration
   - `Response`: Typed response wrapper supporting list operations and pagination
-  - `Credentials`: Supports multiple authentication methods (token, certificates, in-cluster service accounts)
+  - `Credentials`: Supports multiple authentication methods (token, certificates, in-cluster service accounts, kubeconfig)
   - `Api\ApiInterface`: Base interface that all generated API classes implement
 
 ### 2. CodeGenerator (`src/CodeGenerator`)

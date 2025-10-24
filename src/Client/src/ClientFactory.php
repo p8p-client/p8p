@@ -13,6 +13,7 @@ namespace P8p\Client;
 
 use P8p\Client\Credentials\CredentialsProviderInterface;
 use P8p\Client\Credentials\InClusterProvider;
+use P8p\Client\Credentials\KubeConfigProvider;
 use P8p\Client\Credentials\UrlProvider;
 use P8p\Client\Serializer\K8sSerializer;
 use P8p\Client\WebSocket\WebSocketClient;
@@ -48,6 +49,11 @@ class ClientFactory
     public static function fromInClusterConfiguration(): self
     {
         return new self(new InClusterProvider());
+    }
+
+    public static function fromKubeConfig(string $path, ?string $context = null): self
+    {
+        return new self(new KubeConfigProvider($path, $context));
     }
 
     public function __construct(
