@@ -108,7 +108,4 @@ jobs:
         run: cd src/Client && vendor/bin/phpunit
 
       - name: Run CodeGenerator tests
-        run: cd src/CodeGenerator && vendor/bin/phpunit --coverage-text
-
-      - name: Run Client tests with coverage
-        run: cd src/Client && vendor/bin/phpunit --coverage-text
+        run: cd src/CodeGenerator && vendor/bin/phpunit
