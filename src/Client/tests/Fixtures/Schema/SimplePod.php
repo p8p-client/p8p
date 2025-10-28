@@ -13,7 +13,7 @@ namespace P8p\Client\Tests\Fixtures\Schema;
 
 use P8p\Client\Attribute\K8sSchema;
 
-#[K8sSchema(kind: 'Pod', apiVersion: 'v1')]
+#[K8sSchema(kind: 'Pod', group: '', version : 'v1')]
 class SimplePod
 {
     public function __construct(

@@ -13,7 +13,7 @@ namespace P8p\Client\Tests\Fixtures\Schema;
 
 use P8p\Client\Attribute\K8sSchema;
 
-#[K8sSchema(kind: 'Deployment', apiVersion: 'apps/v1')]
+#[K8sSchema(kind: 'Deployment', group: 'apps', version : 'v1')]
 class TestClass
 {
 }

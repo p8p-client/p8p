@@ -31,7 +31,8 @@ class SchemaClassBuilder
             $namespace->addUse(K8sSchema::class);
             $classType->addAttribute(K8sSchema::class, [
                 'kind' => $schema->getGroupVersionKind()->kind,
-                'apiVersion' => $schema->getGroupVersionKind()->version,
+                'group' => $schema->getGroupVersionKind()->group,
+                'version' => $schema->getGroupVersionKind()->version,
             ]);
         }
 

@@ -16,7 +16,18 @@ class K8sSchema
 {
     public function __construct(
         public string $kind,
-        public string $apiVersion,
+        public string $group,
+        public string $version,
     ) {
+    }
+
+    /**
+     * Get the API version in the format "group/version".
+     */
+    public function getApiVersion(): string
+    {
+        return '' === $this->group
+            ? $this->version
+            : $this->group.'/'.$this->version;
     }
 }

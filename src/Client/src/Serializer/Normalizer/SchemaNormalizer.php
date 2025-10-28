@@ -46,7 +46,7 @@ class SchemaNormalizer implements NormalizerInterface, NormalizerAwareInterface
 
         return array_merge([
             'kind' => $attribute->kind,
-            'apiVersion' => $attribute->apiVersion,
+            'apiVersion' => $attribute->getApiVersion(),
         ], $normalized);
     }
 
