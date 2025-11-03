@@ -11,6 +11,7 @@
 
 namespace P8p\Client\Serializer\Normalizer;
 
+use P8p\Client\Exception\MissingDependencyException;
 use P8p\Sdk\Schema\Meta\V1\WatchEvent;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
@@ -36,7 +37,11 @@ class WatchEventDenormalizer implements DenormalizerInterface, DenormalizerAware
             throw new InvalidArgumentException('WATCH_OBJECT_CLASS context is required and must be a string');
         }
 
-        return new WatchEvent( /* @phpstan-ignore class.notFound */
+        if (!class_exists(WatchEvent::class)) {
+            throw MissingDependencyException::forPackage(package: 'p8p/sdk', feature: 'WatchEventDenormalizer::denormalize');
+        }
+
+        return new WatchEvent(
             object: $this->denormalizer->denormalize($data['object'], $context[self::WATCH_OBJECT_CLASS], $format, $context),
             type: $data['type'],
         );

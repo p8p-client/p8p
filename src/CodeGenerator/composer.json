@@ -2,7 +2,7 @@
     "name": "p8p/generator",
     "require": {
         "php": ">=8.4",
-        "p8p/client": "dev-master",
+        "p8p/client": "self.version",
         "cebe/php-openapi": "^1.8.0",
         "symfony/console": "^7.3",
         "symfony/type-info": "^7.3",
