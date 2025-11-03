@@ -11,6 +11,7 @@
 
 namespace P8p\Client\Serializer;
 
+use P8p\Client\Serializer\Normalizer\CustomRessourceListDenormalizer;
 use P8p\Client\Serializer\Normalizer\SchemaNormalizer;
 use P8p\Client\Serializer\Normalizer\WatchEventDenormalizer;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
@@ -42,6 +43,7 @@ class K8sSerializer extends Serializer
             new DateTimeNormalizer(),
             new SchemaNormalizer(),
             new WatchEventDenormalizer(),
+            new CustomRessourceListDenormalizer(),
             $objectNormalizer,
             new ArrayDenormalizer(),
         ];

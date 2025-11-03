@@ -13,6 +13,7 @@ namespace P8p\Client;
 
 use League\Uri\UriTemplate;
 use P8p\Client\Api\ApiInterface;
+use P8p\Client\Api\CustomResourceApi;
 use P8p\Client\WebSocket\WebSocketClientInterface;
 use P8p\Client\WebSocket\WebSocketConnection;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -24,6 +25,11 @@ class Client
      * @var array<class-string, ApiInterface>
      */
     private array $apis = [];
+
+    /**
+     * @var array<class-string, CustomResourceApi<object>>
+     */
+    private array $customResourceApis = [];
 
     public function __construct(
         private readonly HttpClientInterface $httpClient,
@@ -50,11 +56,29 @@ class Client
     }
 
     /**
+     * @template TResource of object
+     *
+     * @param class-string<TResource> $resourceClass
+     *
+     * @return CustomResourceApi<TResource>
+     */
+    public function getCustomResourceApi(string $resourceClass): CustomResourceApi
+    {
+        if (!isset($this->customResourceApis[$resourceClass])) {
+            $this->customResourceApis[$resourceClass] = new CustomResourceApi($resourceClass);
+            $this->customResourceApis[$resourceClass]->setClient($this);
+        }
+
+        /* @var CustomResourceApi<TResource> */
+        return $this->customResourceApis[$resourceClass];
+    }
+
+    /**
      * @template T
      *
-     * @param ?class-string<T>      $responseClass
-     * @param array<string, string> $pathParameters
-     * @param array<string, string> $queryParameters
+     * @param ?class-string<T>                    $responseClass
+     * @param array<string, string>               $pathParameters
+     * @param array<string, string|int|bool|null> $queryParameters
      *
      * @return Response<T>
      */

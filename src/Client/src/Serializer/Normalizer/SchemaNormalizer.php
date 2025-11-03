@@ -11,6 +11,7 @@
 
 namespace P8p\Client\Serializer\Normalizer;
 
+use P8p\Client\Attribute\K8sCustomResourceSchema;
 use P8p\Client\Attribute\K8sSchema;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
@@ -74,6 +75,11 @@ class SchemaNormalizer implements NormalizerInterface, NormalizerAwareInterface
         $ref = new \ReflectionClass($object);
         $attributes = $ref->getAttributes(K8sSchema::class);
 
+        foreach ($attributes as $attribute) {
+            return $attribute->newInstance();
+        }
+
+        $attributes = $ref->getAttributes(K8sCustomResourceSchema::class);
         foreach ($attributes as $attribute) {
             return $attribute->newInstance();
         }
