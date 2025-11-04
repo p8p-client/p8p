@@ -17,6 +17,7 @@ function all(
 {
     client($coverage);
     generator($coverage);
+    sdk();
 }
 
 #[AsTask]
@@ -38,6 +39,14 @@ function generator(
 {
     io()->title('Run P8p\CodeGenerator tests suite ');
     runTests('src/CodeGenerator', $coverage);
+}
+
+
+#[AsTask]
+function sdk(): void
+{
+    io()->title('Run P8p\CodeGenerator sdk suite ');
+    runTests('src/Sdk', false);
 }
 
 

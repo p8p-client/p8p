@@ -109,3 +109,48 @@ jobs:
 
       - name: Run CodeGenerator tests
         run: cd src/CodeGenerator && vendor/bin/phpunit
+
+  functional-tests:
+    name: Functional Tests (PHP ${{ matrix.php-version }} and K3S ${{ matrix.k3s-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.4']
+        k3s-version: ['v1.34.1-k3s1']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress
+          composer all install
+
+      - name: Setup K3s
+        uses: debianmaster/actions-k3s@v1.0.5
+        with:
+          version: ${{ matrix.k3s-version }}
+
+      - name: Wait for K3s to be ready
+        run: |
+          kubectl wait --for=condition=ready node --all --timeout=60s
+          kubectl cluster-info
+
+      - name: Start kubectl proxy
+        run: |
+          kubectl proxy --port=8001 &
+          sleep 5
+          curl -s http://127.0.0.1:8001/api/v1/namespaces || (echo "Proxy not ready" && exit 1)
+
+      - name: Run SDK functional tests
+        env:
+          KUBERNETES_API_URL: http://127.0.0.1:8001
+          KUBERNETES_NAMESPACE: default
+        run: cd src/Sdk && vendor/bin/phpunit
