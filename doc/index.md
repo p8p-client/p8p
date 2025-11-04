@@ -16,6 +16,7 @@ It automatically generates strongly-typed PHP classes from Kubernetes OpenAPI sp
 
 - [Installation and Configuration](./installation.md) - Installation
 - [Using Kubernetes APIs](./api.md) - Make your first calls
+- [Symfony Bundle](./bundle.md) - Integration with Symfony applications
 - [SDK](./sdk/index.md) - List of available APIs
 
 ### Advanced
@@ -31,16 +32,49 @@ Guides for contributing to the project
 - [Generate the SDK](./generate.md) - Launch code generation
 
 
-## 🚀 Quick Example
+## 🚀 Quick Examples
+
+### Read pods
 
 ```php
 use P8p\Client\ClientFactory;
 use P8p\Sdk\Api\Core\V1\PodApi;
 
-$client = ClientFactory::fromUrl('http://127.0.0.1:8001')->getClient();;
+$client = ClientFactory::fromUrl('http://127.0.0.1:8001')->getClient();
 
 $podApi = $client->getApi(PodApi::class);
 $pods = $podApi->list(namespace: 'default');
 
 dd($pods->getContent())
+```
+
+### Create pod
+
+```php
+use P8p\Client\ClientFactory;
+use P8p\Sdk\Api\Core\V1\PodApi;
+use P8p\Sdk\Schema\Core\V1\Container;
+use P8p\Sdk\Schema\Core\V1\Pod;
+use P8p\Sdk\Schema\Core\V1\PodSpec;
+use P8p\Sdk\Schema\Meta\V1\ObjectMeta;
+
+$client = ClientFactory::fromUrl('http://127.0.0.1:8001')->getClient();
+
+$podApi = $client->getApi(PodApi::class);
+$rs = $podApi->create('default', new Pod(
+    metadata: new ObjectMeta(
+        name: 'test-pod',
+    ),
+    spec: new PodSpec(
+        containers: [
+            new Container(
+                name: 'nginx',
+                image: 'nginx',
+            ),
+        ]
+    )
+));
+
+dd($rs->getContent())
+
 ```

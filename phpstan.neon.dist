@@ -6,15 +6,15 @@ parameters:
         - src/Client/tests
         - src/CodeGenerator/src
         - src/CodeGenerator/tests
+        - src/Bundle/src
+        - src/Bundle/tests
     fileExtensions:
         - php
     scanDirectories:
       - src/Client/vendor
       - src/CodeGenerator/vendor
+      - src/Bundle/vendor
     ignoreErrors:
-      -
-        message: '#has invalid return type P8p\\Sdk\\Schema\\Meta\\V1\\Status#'
-        path: src/Client/src/Response.php
       -
         message: '#has parameter \$type with generic class .* but does not specify its types#'
         path: src/CodeGenerator/src/Writer/TypeFormatter.php
