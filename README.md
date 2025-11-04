@@ -11,6 +11,7 @@ Check out the [complete documentation](./doc/index.md) to get started with P8P.
 This project is organized as a monorepo. Each package is also available individually:
 
 - **[p8p/client](https://github.com/p8p-client/client)** - HTTP client for communicating with Kubernetes APIs
+- **[p8p/bundle](https://github.com/p8p-client/bundle)** - Symfony bundle for easy integration
 - **[p8p/generator](https://github.com/p8p-client/generator)** - Code generator from OpenAPI specifications
 - **[p8p/sdk](https://github.com/p8p-client/sdk)** - Generated Kubernetes SDK (models and services)
 

@@ -81,7 +81,7 @@ class Response
     public function watch(?float $timeout = null, ?string $objectClass = null): \Generator
     {
         if (!class_exists(WatchEvent::class)) {
-            throw new K8sApiException(sprintf('class "%s" is missing, You must install "p8p/sdk" package', WatchEvent::class)); /* @phpstan-ignore class.notFound */
+            throw new K8sApiException(sprintf('class "%s" is missing, You must install "p8p/sdk" package', WatchEvent::class));
         }
 
         foreach ($this->stream($timeout) as $chunk) {

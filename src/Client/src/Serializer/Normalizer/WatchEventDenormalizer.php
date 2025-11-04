@@ -33,6 +33,10 @@ class WatchEventDenormalizer implements DenormalizerInterface, DenormalizerAware
             throw new InvalidArgumentException('Data must be an array');
         }
 
+        if (!is_string($data['type'])) {
+            throw new InvalidArgumentException('Data must have a "type" key with a string value');
+        }
+
         if (!isset($context[self::WATCH_OBJECT_CLASS]) || !is_string($context[self::WATCH_OBJECT_CLASS])) {
             throw new InvalidArgumentException('WATCH_OBJECT_CLASS context is required and must be a string');
         }
@@ -41,8 +45,11 @@ class WatchEventDenormalizer implements DenormalizerInterface, DenormalizerAware
             throw MissingDependencyException::forPackage(package: 'p8p/sdk', feature: 'WatchEventDenormalizer::denormalize');
         }
 
+        /** @var array<mixed>|object $object */
+        $object = $this->denormalizer->denormalize($data['object'], $context[self::WATCH_OBJECT_CLASS], $format, $context);
+
         return new WatchEvent(
-            object: $this->denormalizer->denormalize($data['object'], $context[self::WATCH_OBJECT_CLASS], $format, $context),
+            object: $object,
             type: $data['type'],
         );
     }
@@ -52,13 +59,13 @@ class WatchEventDenormalizer implements DenormalizerInterface, DenormalizerAware
      */
     public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
-        return WatchEvent::class === $type && isset($context[self::WATCH_OBJECT_CLASS]); /* @phpstan-ignore class.notFound */
+        return WatchEvent::class === $type && isset($context[self::WATCH_OBJECT_CLASS]);
     }
 
     public function getSupportedTypes(?string $format): array
     {
         return [
-            WatchEvent::class => true, /* @phpstan-ignore class.notFound */
+            WatchEvent::class => true,
         ];
     }
 }

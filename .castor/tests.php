@@ -17,6 +17,7 @@ function all(
 {
     client($coverage);
     generator($coverage);
+    bundle($coverage);
     sdk();
 }
 
@@ -41,6 +42,16 @@ function generator(
     runTests('src/CodeGenerator', $coverage);
 }
 
+#[AsTask]
+function bundle(
+    #[AsOption]
+    bool $coverage = false,
+): void
+{
+    io()->title('Run P8p\Bundle sdk suite ');
+    runTests('src/Bundle', $coverage);
+}
+
 
 #[AsTask]
 function sdk(): void
@@ -48,7 +59,6 @@ function sdk(): void
     io()->title('Run P8p\CodeGenerator sdk suite ');
     runTests('src/Sdk', false);
 }
-
 
 function runTests(string $path, bool $coverage): void
 {
