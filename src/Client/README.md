@@ -1,5 +1,10 @@
 # P8P Client Component
 
+> **⚠️ Development Status**
+>
+> This project is under active development and is not yet ready for production use.
+> APIs and features may change without notice.
+
 The Client component provides a HTTP and websocket client for interacting with Kubernetes APIs.
 It handles authentication, request/response serialization, and provides support for various Kubernetes
 operations including watch streams and exec sessions.

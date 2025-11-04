@@ -1,5 +1,10 @@
 # P8P - PHP Client for Kubernetes
 
+> **⚠️ Development Status**
+>
+> This project is under active development and is not yet ready for production use.
+> APIs and features may change without notice.
+
 P8P is a PHP SDK for interacting with Kubernetes APIs. It automatically generates strongly-typed PHP classes from Kubernetes OpenAPI specifications.
 
 ## 📚 Documentation
