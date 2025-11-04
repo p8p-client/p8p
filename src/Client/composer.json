@@ -1,5 +1,13 @@
 {
     "name": "p8p/client",
+    "description": "HTTP client for communicating with Kubernetes APIs with support for multiple authentication methods",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Jacottet",
+            "email": "jjacottet@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=8.4",
         "symfony/http-client": "^7.3",
