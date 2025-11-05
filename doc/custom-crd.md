@@ -1,5 +1,7 @@
 # Generating Custom CRDs
 
+> **Using Symfony?** If you're working with the Symfony bundle, check out the [Symfony Bundle documentation](./bundle.md#generating-custom-resources-crd) for a simpler integration with console commands and YAML configuration.
+
 This guide explains how to generate PHP classes for Custom Resource Definitions (CRDs) while reusing types from the main P8P SDK.
 
 ## Use Cases
