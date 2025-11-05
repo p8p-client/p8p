@@ -29,13 +29,15 @@ php generate.php
 ### With a custom URL
 
 ```bash
-php generate.php --base-url=https://my-cluster.example.com
+php generate.php https://my-cluster.example.com
 ```
 
 ### With a custom configuration file
 
 ```bash
 php generate.php --config=/path/to/custom-config.php
+# or
+php generate.php https://my-cluster.example.com --config=/path/to/custom-config.php
 ```
 
 ## Configuration
@@ -49,15 +51,27 @@ return new Config(
     apis: [
         new Api('', 'v1'),                        // Core API (Pod, Service, ConfigMap...)
         new Api('apps', 'v1'),                    // Apps API (Deployment, StatefulSet...)
-        new Api('apiextensions.k8s.io', 'v1')    // CRD API
+        new Api('apiextensions.k8s.io', 'v1'),   // CRD API
+        // Add more APIs as needed
     ],
     schemasOverride: [
-        // Type overrides for special Kubernetes types
-        'io.k8s.apimachinery.pkg.util.intstr.IntOrString' => Type::union(Type::int(), Type::string()),
-        // ...
+        // Custom type overrides for your project (optional)
+        // System overrides (IntOrString, Quantity, Time, etc.) are handled automatically
     ],
+    documentationOutputDir: __DIR__.'/../../doc/sdk',  // Set to null to disable documentation
+    externalSdkPath: null,  // Path to external SDK to avoid duplicating types (for CRD generation)
 );
 ```
+
+### Configuration Parameters
+
+- **baseNamespace**: Target namespace for generated classes
+- **basePath**: Output directory for generated classes
+- **apis**: List of Kubernetes APIs to generate (group/version pairs)
+- **schemasOverride**: Custom type overrides for project-specific needs (optional)
+- **documentationOutputDir**: Output directory for documentation (optional, set to `null` to disable)
+- **externalSdkPath**: Path to external SDK source directory (optional, for CRD generation)
+- **documentationTemplateDir**: Custom templates directory (optional, defaults to built-in templates)
 
 ## Generation Output
 
@@ -97,9 +111,35 @@ src/Sdk/src/
 
 ## Type Overrides
 
-Some Kubernetes types require special handling via `schemasOverride`:
+### System Overrides (Automatic)
 
-- **Quantity**: Resource representation (`"100Mi"`, `"2Gi"`)
-- **Time**: Converted to PHP `DateTime` object
-- **RawExtension**: Arbitrary JSON data
-- ...
+The generator automatically handles special Kubernetes types that need custom PHP representations:
+
+| Kubernetes Type | PHP Type | Description |
+|----------------|----------|-------------|
+| `IntOrString` | `int\|string` | Can be an integer or a string (e.g., port numbers) |
+| `Quantity` | `int\|string` | Resource quantities (e.g., `"100Mi"`, `"2Gi"`) |
+| `Time` / `MicroTime` | `\DateTime` | Kubernetes timestamps |
+| `RawExtension` | `array\|object` | Arbitrary JSON data |
+| `FieldsV1` / `Patch` | `array` | Arbitrary structures |
+| `JSON*` types | `array` / `array\|bool` | JSON Schema types |
+
+These overrides are **automatic** and do not need to be configured in `schemasOverride`.
+
+### Custom Overrides
+
+Use `schemasOverride` only for project-specific type mappings:
+
+```php
+schemasOverride: [
+    'com.example.MyCustomType' => Type::string(),
+],
+```
+
+## Generating Custom CRDs
+
+P8P supports generating PHP classes for Custom Resource Definitions (CRDs) while reusing types from the main SDK.
+
+See [Custom CRD Generation](./custom-crd.md) for detailed documentation on:
+- Generating classes for your custom CRDs
+- Integrating open-source packages (cert-manager, Prometheus Operator, Istio, ArgoCD, etc.)

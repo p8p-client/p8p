@@ -36,7 +36,6 @@ class GenerateCommand extends Command
         $this->setDefinition([
             new InputArgument('baseUrl', InputArgument::OPTIONAL, 'K8S api url', 'http://127.0.0.1:8001/'),
             new InputOption('config', 'c', InputOption::VALUE_REQUIRED, 'Path to config file', self::DEFAULT_CONFIG_PATH),
-            new InputOption('no-doc', null, InputOption::VALUE_NONE, 'Disable documentation generation'),
         ]);
     }
 
@@ -71,7 +70,7 @@ class GenerateCommand extends Command
         $writer = new Writer();
         $writer->write($model);
 
-        if (!$input->getOption('no-doc')) {
+        if (null !== $config->documentationOutputDir) {
             $io->title('Generate documentation');
 
             $docGenerator = new DocumentationGenerator($config);

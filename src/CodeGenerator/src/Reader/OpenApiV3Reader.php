@@ -37,13 +37,35 @@ class OpenApiV3Reader
 
     private readonly ClassMetadataExtractor $classMetadataExtractor;
     private readonly TypeExtractor $typeExtractor;
+    private readonly ExternalTypeRegistry $externalTypeRegistry;
 
     public function __construct(
         private readonly string $baseUrl,
         private readonly Config $config,
     ) {
         $this->classMetadataExtractor = new ClassMetadataExtractor($config);
-        $this->typeExtractor = new TypeExtractor($config);
+        $this->externalTypeRegistry = $this->initializeExternalTypeRegistry();
+        $this->typeExtractor = new TypeExtractor($config, $this->externalTypeRegistry);
+    }
+
+    /**
+     * Initialize ExternalTypeRegistry if external SDK is configured.
+     */
+    private function initializeExternalTypeRegistry(): ExternalTypeRegistry
+    {
+        $registry = new ExternalTypeRegistry();
+
+        if (null === $this->config->externalSdkPath) {
+            return $registry;
+        }
+
+        if (!is_dir($this->config->externalSdkPath)) {
+            throw new \RuntimeException(sprintf('External SDK path "%s" does not exist', $this->config->externalSdkPath));
+        }
+
+        $registry->scan($this->config->externalSdkPath);
+
+        return $registry;
     }
 
     public function read(Model $model): void
@@ -65,7 +87,23 @@ class OpenApiV3Reader
 
         /** @var SchemaSpec $schemaSpecs */
         foreach ($schemas as $name => $schemaSpecs) {
-            if ($model->hasSchema($name) || isset($this->config->schemasOverride[$name])) {
+            // Skip if schema already exists in model
+            if ($model->hasSchema($name)) {
+                continue;
+            }
+
+            // Skip if schema has a system override (handled by TypeExtractor)
+            if ($this->typeExtractor->isSystemOverride($name)) {
+                continue;
+            }
+
+            // Skip if schema has a custom config override
+            if (isset($this->config->schemasOverride[$name])) {
+                continue;
+            }
+
+            // Skip if schema exists in external SDK
+            if ($this->externalTypeRegistry->hasSchema($name)) {
                 continue;
             }
 

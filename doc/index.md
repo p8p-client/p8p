@@ -30,6 +30,7 @@ Guides for contributing to the project
 - [Contributing](./contributing.md) - Project contribution guide
 - [Project Architecture](./architecture.md) - Technical overview
 - [Generate the SDK](./generate.md) - Launch code generation
+- [Generate Custom CRDs](./custom-crd.md) - Generate classes for custom resources
 
 
 ## 🚀 Quick Examples

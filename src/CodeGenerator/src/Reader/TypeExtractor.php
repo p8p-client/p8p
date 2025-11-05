@@ -20,8 +20,10 @@ use Symfony\Component\TypeInfo\Type;
 
 class TypeExtractor
 {
-    public function __construct(private readonly Config $config)
-    {
+    public function __construct(
+        private readonly Config $config,
+        private readonly ExternalTypeRegistry $externalTypeRegistry,
+    ) {
     }
 
     public function extract(OpenApiSchema|Reference $spec, Model $model): Type
@@ -103,6 +105,17 @@ class TypeExtractor
                 return $this->config->schemasOverride[$name];
             }
 
+            $systemOverrides = self::getSystemOverrides();
+            if (isset($systemOverrides[$name])) {
+                return $systemOverrides[$name];
+            }
+
+            if ($this->externalTypeRegistry->hasSchema($name)) {
+                $fqcn = $this->externalTypeRegistry->resolveSchemaName($name);
+
+                return Type::object($fqcn);
+            }
+
             if (!$model->hasSchema($name)) {
                 throw new ReaderException(sprintf('Unable to map type. Missing schema "%s"', $name));
             }
@@ -123,5 +136,35 @@ class TypeExtractor
             'number' => Type::float(),
             default => throw new ReaderException(sprintf('Unable to map type from "%s"', $type)),
         };
+    }
+
+    /**
+     * Get system type overrides for special Kubernetes types.
+     * These types have specific PHP representations that differ from their OpenAPI schema.
+     *
+     * @return array<string, Type>
+     */
+    private function getSystemOverrides(): array
+    {
+        return [
+            'io.k8s.apimachinery.pkg.util.intstr.IntOrString' => Type::union(Type::int(), Type::string()),
+            'io.k8s.apimachinery.pkg.api.resource.Quantity' => Type::union(Type::int(), Type::string()),
+            'io.k8s.apimachinery.pkg.runtime.RawExtension' => Type::union(Type::array(), Type::object()),
+            'io.k8s.apimachinery.pkg.apis.meta.v1.Time' => Type::object(\DateTime::class),
+            'io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime' => Type::object(\DateTime::class),
+            'io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1' => Type::array(),
+            'io.k8s.apimachinery.pkg.apis.meta.v1.Patch' => Type::array(),
+            'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceStatus' => Type::array(),
+            'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSON' => Type::array(),
+            'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps' => Type::array(),
+            'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaPropsOrBool' => Type::union(Type::array(), Type::bool()),
+            'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaPropsOrStringArray' => Type::array(),
+            'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaPropsOrArray' => Type::array(),
+        ];
+    }
+
+    public function isSystemOverride(string $schemaName): bool
+    {
+        return isset($this->getSystemOverrides()[$schemaName]);
     }
 }

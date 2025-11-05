@@ -23,7 +23,9 @@ class Cleaner
     public function clean(): void
     {
         $filesystem = new Filesystem();
-        $filesystem->remove($this->config->documentationOutputDir);
+        if (null !== $this->config->documentationOutputDir) {
+            $filesystem->remove($this->config->documentationOutputDir);
+        }
         $filesystem->remove($this->config->basePath);
     }
 }

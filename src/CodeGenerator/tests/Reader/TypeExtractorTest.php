@@ -21,6 +21,7 @@ use P8p\CodeGenerator\Exception\ReaderException;
 use P8p\CodeGenerator\Model\ClassMetadata;
 use P8p\CodeGenerator\Model\Model;
 use P8p\CodeGenerator\Model\Schema;
+use P8p\CodeGenerator\Reader\ExternalTypeRegistry;
 use P8p\CodeGenerator\Reader\TypeExtractor;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\TypeInfo\Type;
@@ -31,6 +32,7 @@ class TypeExtractorTest extends TestCase
     private Config $config;
     private Model $model;
     private string $fixturesPath;
+    private ExternalTypeRegistry $externalTypeRegistry;
 
     protected function setUp(): void
     {
@@ -43,7 +45,8 @@ class TypeExtractorTest extends TestCase
             documentationOutputDir: '/path/to/sdk/docs',
             documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
-        $this->extractor = new TypeExtractor($this->config);
+        $this->externalTypeRegistry = new ExternalTypeRegistry();
+        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry);
         $this->model = new Model();
     }
 
@@ -115,13 +118,28 @@ class TypeExtractorTest extends TestCase
             documentationOutputDir: '/path/to/sdk/docs',
             documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
-        $this->extractor = new TypeExtractor($this->config);
+        $this->externalTypeRegistry = new ExternalTypeRegistry();
+        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry);
 
         $openApiSchema = $this->createOpenApiSchemaWithPath(['components', 'schemas', 'io.k8s.IntOrString']);
 
         $type = $this->extractor->extract($openApiSchema, $this->model);
 
         $this->assertSame($overrideType, $type);
+    }
+
+    public function testExtractUsesExternalTypeRegistry(): void
+    {
+        // Scan external SDK fixtures
+        $this->externalTypeRegistry->scan(__DIR__.'/../Fixtures/external-sdk');
+        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry);
+
+        $openApiSchema = $this->createOpenApiSchemaWithPath(['components', 'schemas', 'io.k8s.api.core.v1.Pod']);
+
+        $type = $this->extractor->extract($openApiSchema, $this->model);
+
+        $this->assertInstanceOf(Type::class, $type);
+        $this->assertEquals('P8p\\Sdk\\Schema\\Core\\V1\\TestPod', (string) $type);
     }
 
     public function testMapStringType(): void

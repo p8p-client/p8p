@@ -13,6 +13,7 @@ namespace P8p\CodeGenerator\Writer;
 
 use Nette\PhpGenerator\PhpNamespace;
 use P8p\Client\Attribute\K8sSchema;
+use P8p\Client\Attribute\K8sSchemaRef;
 use P8p\CodeGenerator\Model\Schema;
 
 class SchemaClassBuilder
@@ -27,6 +28,13 @@ class SchemaClassBuilder
             $namespace->addUse($use);
         }
 
+        // Add K8sSchemaRef to all schemas (technical mapping)
+        $namespace->addUse(K8sSchemaRef::class);
+        $classType->addAttribute(K8sSchemaRef::class, [
+            'name' => $schema->getName(),
+        ]);
+
+        // Add K8sSchema only for resources with GVK (used by normalizer)
         if ($schema->getGroupVersionKind() && $schema->hasProperty('kind') && $schema->hasProperty('apiVersion')) {
             $namespace->addUse(K8sSchema::class);
             $classType->addAttribute(K8sSchema::class, [
