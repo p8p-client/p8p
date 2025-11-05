@@ -25,7 +25,7 @@ composer require p8p/client
 If you want to generate your own SDK:
 
 ```bash
-composer require p8p/code-generator
+composer require p8p/generator
 ```
 
 ## Kubernetes Cluster Configuration

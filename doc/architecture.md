@@ -12,7 +12,7 @@ p8p/
 │   │   ├── tests/
 │   │   ├── composer.json
 │   │   └── phpunit.xml.dist
-│   ├── CodeGenerator/            # Package p8p/code-generator
+│   ├── CodeGenerator/            # Package p8p/generator
 │   │   ├── src/
 │   │   ├── tests/
 │   │   └── composer.json
