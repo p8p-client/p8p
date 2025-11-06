@@ -81,7 +81,7 @@ use App\K8s\Api\CertManager\V1\CertificateApi;
 use App\K8s\Schema\CertManager\V1\Certificate;
 use App\K8s\Schema\CertManager\V1\CertificateSpec;
 use App\K8s\Schema\CertManager\V1\IssuerRef;
-use P8p\Sdk\Schema\Meta\V1\ObjectMeta; // Reuses SDK type!
+use P8p\Sdk\Schema\Core\V1\ObjectMeta; // Reuses SDK type!
 
 // Create the client
 $client = ClientFactory::fromKubeConfig('/path/to/kubeconfig')->getClient();
@@ -95,10 +95,13 @@ $certificate = new Certificate(
         name: 'my-cert',
         namespace: 'default',
     ),
-    spec: [
-        ...
-    ]
-]
+    spec: new CertificateSpec(
+        dnsNames: ['example.com'],
+        issuerRef: new CertificateSpecIssuerRef(
+            name: 'letsencrypt-prod',
+        )
+        // ....
+    )
 );
 
 $response = $certificateApi->create('default', $certificate);

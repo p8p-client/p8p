@@ -65,13 +65,6 @@ git checkout -b feature/my-feature
 git checkout -b fix/my-fix
 ```
 
-**Naming convention**:
-- `feature/descriptive-name`: New features
-- `fix/descriptive-name`: Bug fixes
-- `docs/descriptive-name`: Documentation
-- `refactor/descriptive-name`: Refactoring
-- `test/descriptive-name`: Tests
-
 ### 2. Develop
 
 ```bash

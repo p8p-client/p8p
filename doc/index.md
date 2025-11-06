@@ -57,7 +57,7 @@ use P8p\Sdk\Api\Core\V1\PodApi;
 use P8p\Sdk\Schema\Core\V1\Container;
 use P8p\Sdk\Schema\Core\V1\Pod;
 use P8p\Sdk\Schema\Core\V1\PodSpec;
-use P8p\Sdk\Schema\Meta\V1\ObjectMeta;
+use P8p\Sdk\Schema\Core\V1\ObjectMeta;
 
 $client = ClientFactory::fromUrl('http://127.0.0.1:8001')->getClient();
 

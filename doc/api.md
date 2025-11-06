@@ -46,11 +46,11 @@ Most Kubernetes APIs are **automatically generated** and available in the `p8p/s
 use P8p\Client\ClientFactory;
 use P8p\Sdk\Api\Core\V1\PodApi;
 use P8p\Sdk\Schema\Core\V1\Pod;
-use P8p\Sdk\Schema\Meta\V1\ObjectMeta;
+use P8p\Sdk\Schema\Core\V1\ObjectMeta;
 use P8p\Sdk\Schema\Core\V1\PodSpec;
 use P8p\Sdk\Schema\Core\V1\Container;
 use P8p\Sdk\Schema\Core\V1\ContainerPort;
-use P8p\Sdk\Schema\Meta\V1\DeleteOptions;
+use P8p\Sdk\Schema\Core\V1\DeleteOptions;
 
 $client = ClientFactory::fromUrl('http://127.0.0.1:8001')->getClient();
 $podApi = $client->getApi(PodApi::class);
@@ -62,7 +62,7 @@ foreach ($pods->items as $pod) {
 }
 
 // Read a specific pod
-$pod = $podApi->read(name: 'my-pod', namespace: 'default');
+$pod = $podApi->read(name: 'my-pod', namespace: 'default')->getContent();
 echo $pod->status->phase . "\n";
 
 // Create a pod
