@@ -14,6 +14,7 @@ namespace P8p\CodeGenerator\Reader;
 use cebe\openapi\spec\Operation as OperationSpec;
 use cebe\openapi\spec\Schema as SchemaSpec;
 use P8p\CodeGenerator\Config\Config;
+use P8p\CodeGenerator\Exception\ReaderException;
 use P8p\CodeGenerator\Model\ClassMetadata;
 
 use function Symfony\Component\String\u;
@@ -28,23 +29,74 @@ class ClassMetadataExtractor
     {
     }
 
-    public function extractForSchema(SchemaSpec $schema): ClassMetadata
+    public function extractForSchema(SchemaSpec $schema, string $group, string $version): ClassMetadata
     {
-        [$group, $version, $kind] = $this->extractSchemaGroupVersionKind($schema);
+        $kind = $this->extractKindFromSchemaName($schema);
+
+        $normalizedGroup = $this->normalizeGroup($group);
 
         return new ClassMetadata(
-            name: $this->generateClassName('Schema', $group, $version, $kind),
-            path: $this->generateClassPath('Schema', $group, $version, $kind),
+            name: $this->generateClassName('Schema', $normalizedGroup, $version, $kind),
+            path: $this->generateClassPath('Schema', $normalizedGroup, $version, $kind),
         );
     }
 
-    public function extractForService(OperationSpec $spec): ClassMetadata
+    public function extractForService(OperationSpec $spec, string $group, string $version): ClassMetadata
     {
-        [$group, $version, $kind] = $this->extractServiceGroupVersionKind($spec);
+        $kind = $this->extractKindFromOperation($spec);
+
+        $normalizedGroup = $this->normalizeGroup($group);
 
         return new ClassMetadata(
-            name: $this->generateClassName('Api', $group, $version, $kind, 'Api'),
-            path: $this->generateClassPath('Api', $group, $version, $kind, 'Api'),
+            name: $this->generateClassName('Api', $normalizedGroup, $version, $kind, 'Api'),
+            path: $this->generateClassPath('Api', $normalizedGroup, $version, $kind, 'Api'),
+        );
+    }
+
+    /**
+     * Extract ClassMetadata for a synthetic inline schema.
+     *
+     * @param string $syntheticName The synthetic schema name (e.g., 'com.example.food.v1alpha1.Pizzeria.spec.chef')
+     * @param string $group         The group from config
+     * @param string $version       The version from config
+     */
+    public function extractForSyntheticSchema(string $syntheticName, string $group, string $version): ClassMetadata
+    {
+        // k8s reverse group part in CRD
+        $reverseGroupe = implode('.', array_reverse(explode('.', $group)));
+
+        // Parse the synthetic name: reverseGroupe.version.kind.property1.property2...
+        // remove <reverseGroupe>.<version>
+        if (!str_starts_with($syntheticName, $reverseGroupe.'.'.$version)) {
+            throw new ReaderException(sprintf('Synthetic schema name "%s" does not start with group "%s" and version "%s"', $syntheticName, $group, $version));
+        }
+
+        $parts = explode(
+            '.',
+            substr($syntheticName, strlen($reverseGroupe.'.'.$version) + 1)
+        );
+
+        // Extract kind and property path
+        $kind = $parts[0];
+
+        if ('' === $kind) {
+            throw new \RuntimeException(sprintf('Unable to extract kind from synthetic schema name: %s', $syntheticName));
+        }
+
+        $propertyPath = array_slice($parts, 1);
+
+        // Generate class name by combining kind and property path
+        // Example: Pizzeria + spec + chef -> PizzeriaSpecChef
+        $combinedKind = $kind;
+        foreach ($propertyPath as $prop) {
+            $combinedKind .= u($prop)->camel()->title()->toString();
+        }
+
+        $normalizedGroup = $this->normalizeGroup($group);
+
+        return new ClassMetadata(
+            name: $this->generateClassName('Schema', $normalizedGroup, $version, $combinedKind),
+            path: $this->generateClassPath('Schema', $normalizedGroup, $version, $combinedKind),
         );
     }
 
@@ -74,50 +126,32 @@ class ClassMetadataExtractor
         ]);
     }
 
-    /**
-     * @return array<int, string>
-     */
-    private function extractSchemaGroupVersionKind(SchemaSpec $spec): array
+    private function normalizeGroup(string $group): string
     {
-        $name = $this->getSchemaName($spec);
-        $parts = explode('.', $name);
+        if ('' === $group) {
+            return 'core';
+        }
 
-        $kind = array_pop($parts);
-        $version = array_pop($parts);
-        $group = array_pop($parts);
-
-        return [$group, $version, $kind]; /* @phpstan-ignore return.type */
+        return u($group)->replace('.k8s.io', '')->toString();
     }
 
-    /**
-     * @return array<string>
-     */
-    protected function extractServiceGroupVersionKind(OperationSpec $spec): array
+    private function extractKindFromSchemaName(SchemaSpec $schema): string
+    {
+        $name = $this->getSchemaName($schema);
+        $parts = explode('.', $name);
+
+        return array_pop($parts);
+    }
+
+    private function extractKindFromOperation(OperationSpec $spec): string
     {
         $extensions = $spec->getExtensions();
 
         if (!isset($extensions['x-kubernetes-group-version-kind'])) {
-            throw new \RuntimeException(sprintf('Unable to extract group version kind for operation "%s"', $spec->operationId));
+            throw new \RuntimeException(sprintf('Unable to extract kind for operation "%s"', $spec->operationId));
         }
 
-        /** @var array{
-         *     x-kubernetes-group-version-kind: array{
-         *         group: string,
-         *         version: string,
-         *         kind: string
-         *     }
-         * } $extensions */
-        $group = $extensions['x-kubernetes-group-version-kind']['group'];
-        $version = $extensions['x-kubernetes-group-version-kind']['version'];
-        $kind = $extensions['x-kubernetes-group-version-kind']['kind'];
-
-        if ('' === $group) {
-            $group = 'core';
-        } else {
-            $group = u($group)->replace('.k8s.io', '')->toString();
-        }
-
-        return [$group, $version, $kind];
+        return $extensions['x-kubernetes-group-version-kind']['kind']; /* @phpstan-ignore offsetAccess.nonOffsetAccessible, return.type */
     }
 
     private function getSchemaName(SchemaSpec $schema): string

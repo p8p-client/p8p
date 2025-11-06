@@ -239,6 +239,83 @@ class KubernetesController extends AbstractController
 }
 ```
 
+## Generating Custom Resources (CRD)
+
+The bundle allows you to generate PHP classes for Custom Resource Definitions (CRD) directly from your Symfony configuration.
+
+Use Cases :
+- Generate classes for custom CRDs you've created
+- Integrate open-source packages (cert-manager, Prometheus Operator, Istio, ArgoCD, etc.)
+
+### Configuration
+
+Add a `generator` section to your `config/packages/p8p.yaml`:
+
+```yaml
+# config/packages/p8p.yaml
+p8p:
+    clients:
+        default:
+            dsn: '%env(KUBERNETES_DSN)%'
+
+    generator:
+        namespace: 'App\K8s'                    # Base namespace for generated classes
+        path: '%kernel.project_dir%/src/K8s'   # Output directory
+        apis:
+            - { group: 'example.com', version: 'v1' }
+            - { group: 'example.com', version: 'v1beta1' }
+```
+
+**Note**: This feature requires the `p8p/generator` package:
+
+```bash
+composer require p8p/generator --dev
+```
+
+### Generating Classes
+
+Once configured, run the generation command:
+
+```bash
+php bin/console p8p:generate
+```
+
+Optional parameters:
+- `--base-url` or `-b`: Kubernetes API base URL (default: `http://127.0.0.1:8001/`)
+- `--force` or `-f`: Skip confirmation prompt
+
+Example:
+```bash
+php bin/console p8p:generate --base-url=https://kubernetes.default.svc
+```
+
+### Using Generated APIs
+
+The generated API classes work exactly like the standard SDK APIs:
+
+```php
+use App\K8s\Api\Example\V1\MyCustomResourceApi;
+use P8p\Client\Client;
+
+class MyService
+{
+    public function __construct(
+        private Client $client,
+    ) {
+    }
+
+    public function listCustomResources(): void
+    {
+        $api = $this->client->getApi(MyCustomResourceApi::class);
+        $resources = $api->list(namespace: 'default')->getContent();
+
+        foreach ($resources->items as $resource) {
+            // Work with your custom resource...
+        }
+    }
+}
+```
+
 ## Going Further
 
 For complete API documentation and advanced usage:

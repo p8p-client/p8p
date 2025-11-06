@@ -26,8 +26,8 @@ class WatchEventDenormalizerTest extends TestCase
 
     protected function setUp(): void
     {
-        if (!class_exists('P8p\Sdk\Schema\Meta\V1\WatchEvent')) {
-            class_alias(WatchEvent::class, 'P8p\Sdk\Schema\Meta\V1\WatchEvent');
+        if (!class_exists('P8p\Sdk\Schema\Core\V1\WatchEvent')) {
+            class_alias(WatchEvent::class, 'P8p\Sdk\Schema\Core\V1\WatchEvent');
         }
 
         $this->denormalizer = new WatchEventDenormalizer();
@@ -51,7 +51,7 @@ class WatchEventDenormalizerTest extends TestCase
             ->with($podData, SimplePod::class, null, $context)
             ->willReturn($expectedPod);
 
-        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Meta\V1\WatchEvent', null, $context);
+        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Core\V1\WatchEvent', null, $context);
     }
 
     public function testDenormalizeExtractsCorrectDataFromArray(): void
@@ -70,7 +70,7 @@ class WatchEventDenormalizerTest extends TestCase
             ->with($objectData, SimplePod::class, null, $context)
             ->willReturn($expectedPod);
 
-        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Meta\V1\WatchEvent', null, $context);
+        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Core\V1\WatchEvent', null, $context);
     }
 
     public function testDenormalizeThrowsExceptionForNonArrayData(): void
@@ -80,7 +80,7 @@ class WatchEventDenormalizerTest extends TestCase
 
         $context = [WatchEventDenormalizer::WATCH_OBJECT_CLASS => SimplePod::class];
 
-        $this->denormalizer->denormalize('not an array', 'P8p\Sdk\Schema\Meta\V1\WatchEvent', null, $context);
+        $this->denormalizer->denormalize('not an array', 'P8p\Sdk\Schema\Core\V1\WatchEvent', null, $context);
     }
 
     public function testDenormalizeThrowsExceptionWhenContextMissing(): void
@@ -93,7 +93,7 @@ class WatchEventDenormalizerTest extends TestCase
             'object' => ['name' => 'test-pod'],
         ];
 
-        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Meta\V1\WatchEvent', null, []);
+        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Core\V1\WatchEvent', null, []);
     }
 
     public function testDenormalizeThrowsExceptionWhenContextNotString(): void
@@ -107,14 +107,14 @@ class WatchEventDenormalizerTest extends TestCase
         ];
         $context = [WatchEventDenormalizer::WATCH_OBJECT_CLASS => 123];
 
-        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Meta\V1\WatchEvent', null, $context);
+        $this->denormalizer->denormalize($data, 'P8p\Sdk\Schema\Core\V1\WatchEvent', null, $context);
     }
 
     public function testSupportsDenormalizationReturnsTrueForWatchEventWithContext(): void
     {
         $context = [WatchEventDenormalizer::WATCH_OBJECT_CLASS => SimplePod::class];
 
-        $result = $this->denormalizer->supportsDenormalization([], 'P8p\Sdk\Schema\Meta\V1\WatchEvent', null, $context);
+        $result = $this->denormalizer->supportsDenormalization([], 'P8p\Sdk\Schema\Core\V1\WatchEvent', null, $context);
 
         $this->assertTrue($result);
     }
@@ -123,7 +123,7 @@ class WatchEventDenormalizerTest extends TestCase
     {
         $result = $this->denormalizer->getSupportedTypes(null);
 
-        $this->assertArrayHasKey('P8p\Sdk\Schema\Meta\V1\WatchEvent', $result);
-        $this->assertTrue($result['P8p\Sdk\Schema\Meta\V1\WatchEvent']);
+        $this->assertArrayHasKey('P8p\Sdk\Schema\Core\V1\WatchEvent', $result);
+        $this->assertTrue($result['P8p\Sdk\Schema\Core\V1\WatchEvent']);
     }
 }

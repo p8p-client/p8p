@@ -13,6 +13,7 @@
         "p8p/client": "self.version",
         "cebe/php-openapi": "^1.8.0",
         "symfony/console": "^7.3",
+        "symfony/finder": "^7.3",
         "symfony/type-info": "^7.3",
         "nette/php-generator": "^v4.2",
         "twig/twig": "^3.0"

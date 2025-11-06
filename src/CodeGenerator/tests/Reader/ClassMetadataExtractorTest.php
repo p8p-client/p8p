@@ -46,7 +46,7 @@ class ClassMetadataExtractorTest extends TestCase
         $crdSchema = $openApi->components?->schemas['io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition'];
         $this->assertNotNull($crdSchema);
 
-        $metadata = $this->extractor->extractForSchema($crdSchema);
+        $metadata = $this->extractor->extractForSchema($crdSchema, 'apiextensions.k8s.io', 'v1');
 
         $this->assertEquals('P8p\Sdk\Schema\Apiextensions\V1\CustomResourceDefinition', $metadata->name);
         $this->assertEquals('/path/to/sdk/Schema/Apiextensions/V1/CustomResourceDefinition.php', $metadata->path);
@@ -69,7 +69,7 @@ class ClassMetadataExtractorTest extends TestCase
 
         $this->assertNotNull($operation, 'Should find an operation with GVK');
 
-        $metadata = $this->extractor->extractForService($operation);
+        $metadata = $this->extractor->extractForService($operation, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(ClassMetadata::class, $metadata);
 

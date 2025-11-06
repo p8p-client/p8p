@@ -42,7 +42,7 @@ list or watch objects of kind PriorityLevelConfiguration
 ```php
 $priorityLevelConfigurationApi->list(
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfigurationList>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfigurationList>
 ```
 
 
@@ -74,12 +74,12 @@ create a PriorityLevelConfiguration
 **Method Signature:**
 ```php
 $priorityLevelConfigurationApi->create(
-    P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration $body
+    P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
-| `body` | `P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration` |  |
+| `body` | `P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration` |  |
 
 **Query Parameters:**
 
@@ -102,12 +102,12 @@ delete collection of PriorityLevelConfiguration
 **Method Signature:**
 ```php
 $priorityLevelConfigurationApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -142,7 +142,7 @@ read the specified PriorityLevelConfiguration
 $priorityLevelConfigurationApi->read(
     string $name,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
 **Parameters:**
@@ -170,9 +170,9 @@ replace the specified PriorityLevelConfiguration
 ```php
 $priorityLevelConfigurationApi->replace(
     string $name,
-    P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration $body
+    P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
 **Parameters:**
@@ -180,7 +180,7 @@ $priorityLevelConfigurationApi->replace(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the PriorityLevelConfiguration |
-| `body` | `P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration` |  |
+| `body` | `P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration` |  |
 
 **Query Parameters:**
 
@@ -204,9 +204,9 @@ delete a PriorityLevelConfiguration
 ```php
 $priorityLevelConfigurationApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -214,7 +214,7 @@ $priorityLevelConfigurationApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the PriorityLevelConfiguration |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -242,7 +242,7 @@ $priorityLevelConfigurationApi->patch(
     string $name,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
 **Parameters:**
@@ -276,7 +276,7 @@ read status of the specified PriorityLevelConfiguration
 $priorityLevelConfigurationApi->readStatus(
     string $name,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
 **Parameters:**
@@ -304,9 +304,9 @@ replace status of the specified PriorityLevelConfiguration
 ```php
 $priorityLevelConfigurationApi->replaceStatus(
     string $name,
-    P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration $body
+    P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
 **Parameters:**
@@ -314,7 +314,7 @@ $priorityLevelConfigurationApi->replaceStatus(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the PriorityLevelConfiguration |
-| `body` | `P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration` |  |
+| `body` | `P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration` |  |
 
 **Query Parameters:**
 
@@ -340,7 +340,7 @@ $priorityLevelConfigurationApi->patchStatus(
     string $name,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\PriorityLevelConfiguration>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\PriorityLevelConfiguration>
 ```
 
 **Parameters:**

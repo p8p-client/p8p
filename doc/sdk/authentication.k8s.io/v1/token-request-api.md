@@ -4,7 +4,7 @@
 
 - **API Group:** authentication.k8s.io
 - **API Version:** v1
-- **Full Class Name:** `P8p\Sdk\Api\Authentication\V1\TokenRequestApi`
+- **Full Class Name:** `P8p\Sdk\Api\Core\V1\TokenRequestApi`
 
 ---
 
@@ -17,7 +17,7 @@
 ## Usage
 
 ```php
-use P8p\Sdk\Api\Authentication\V1\TokenRequestApi;
+use P8p\Sdk\Api\Core\V1\TokenRequestApi;
 
 $tokenRequestApi = $client->getApi(TokenRequestApi::class);
 ```
@@ -34,9 +34,9 @@ create token of a ServiceAccount
 $tokenRequestApi->createCoreV1ServiceAccountToken(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Authentication\V1\TokenRequest $body
+    P8p\Sdk\Schema\Core\V1\TokenRequest $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Authentication\V1\TokenRequest>
+): Response<P8p\Sdk\Schema\Core\V1\TokenRequest>
 ```
 
 **Parameters:**
@@ -45,7 +45,7 @@ $tokenRequestApi->createCoreV1ServiceAccountToken(
 |------|------|-------------|
 | `name` | `string` | name of the TokenRequest |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Authentication\V1\TokenRequest` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\TokenRequest` |  |
 
 **Query Parameters:**
 

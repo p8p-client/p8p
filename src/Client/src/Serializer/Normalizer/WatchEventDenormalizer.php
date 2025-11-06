@@ -12,7 +12,7 @@
 namespace P8p\Client\Serializer\Normalizer;
 
 use P8p\Client\Exception\MissingDependencyException;
-use P8p\Sdk\Schema\Meta\V1\WatchEvent;
+use P8p\Sdk\Schema\Core\V1\WatchEvent;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;

@@ -102,12 +102,12 @@ delete collection of VolumeAttachment
 **Method Signature:**
 ```php
 $volumeAttachmentApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -204,7 +204,7 @@ delete a VolumeAttachment
 ```php
 $volumeAttachmentApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
 ): Response<P8p\Sdk\Schema\Storage\V1\VolumeAttachment>
 ```
@@ -214,7 +214,7 @@ $volumeAttachmentApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the VolumeAttachment |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 

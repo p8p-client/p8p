@@ -52,9 +52,9 @@ class Client
     /**
      * @template T
      *
-     * @param ?class-string<T>      $responseClass
-     * @param array<string, string> $pathParameters
-     * @param array<string, string> $queryParameters
+     * @param ?class-string<T>                    $responseClass
+     * @param array<string, string>               $pathParameters
+     * @param array<string, bool|int|string|null> $queryParameters
      *
      * @return Response<T>
      */

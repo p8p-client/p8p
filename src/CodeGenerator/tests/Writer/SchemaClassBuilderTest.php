@@ -45,6 +45,12 @@ class SchemaClassBuilderTest extends TestCase
         $class = $classes['Pod'];
         $this->assertTrue($class->hasMethod('__construct'));
 
+        $attributes = $class->getAttributes();
+        $this->assertCount(1, $attributes);
+        $this->assertSame('P8p\\Client\\Attribute\\K8sSchemaRef', $attributes[0]->getName());
+        $schemaRefArgs = $attributes[0]->getArguments();
+        $this->assertEquals('io.k8s.api.core.v1.Pod', $schemaRefArgs['name']);
+
         $constructor = $class->getMethod('__construct');
         $parameters = $constructor->getParameters();
 
@@ -124,10 +130,21 @@ class SchemaClassBuilderTest extends TestCase
         $classes = $namespace->getClasses();
         $class = $classes['Pod'];
 
-        // Check that K8sSchema attribute is present
+        // Check that both K8sSchemaRef and K8sSchema attributes are present
         $attributes = $class->getAttributes();
-        $this->assertCount(1, $attributes);
-        $this->assertSame('P8p\\Client\\Attribute\\K8sSchema', $attributes[0]->getName());
+        $this->assertCount(2, $attributes);
+
+        // K8sSchemaRef is always added
+        $this->assertSame('P8p\\Client\\Attribute\\K8sSchemaRef', $attributes[0]->getName());
+        $schemaRefArgs = $attributes[0]->getArguments();
+        $this->assertEquals('io.k8s.api.core.v1.Pod', $schemaRefArgs['name']);
+
+        // K8sSchema is added for resources with GVK
+        $this->assertSame('P8p\\Client\\Attribute\\K8sSchema', $attributes[1]->getName());
+        $schemaArgs = $attributes[1]->getArguments();
+        $this->assertEquals('Pod', $schemaArgs['kind']);
+        $this->assertEquals('', $schemaArgs['group']);
+        $this->assertEquals('v1', $schemaArgs['version']);
 
         // Check that kind and apiVersion are NOT in constructor (excluded for GVK schemas)
         $constructor = $class->getMethod('__construct');

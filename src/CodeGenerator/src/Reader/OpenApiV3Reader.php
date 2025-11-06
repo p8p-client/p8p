@@ -37,13 +37,17 @@ class OpenApiV3Reader
 
     private readonly ClassMetadataExtractor $classMetadataExtractor;
     private readonly TypeExtractor $typeExtractor;
+    private readonly ExternalTypeRegistry $externalTypeRegistry;
+    private readonly InlineSchemaGenerator $inlineSchemaGenerator;
 
     public function __construct(
         private readonly string $baseUrl,
         private readonly Config $config,
     ) {
         $this->classMetadataExtractor = new ClassMetadataExtractor($config);
-        $this->typeExtractor = new TypeExtractor($config);
+        $this->externalTypeRegistry = $this->initializeExternalTypeRegistry();
+        $this->inlineSchemaGenerator = new InlineSchemaGenerator($this->classMetadataExtractor);
+        $this->typeExtractor = new TypeExtractor($config, $this->externalTypeRegistry, $this->inlineSchemaGenerator);
     }
 
     public function read(Model $model): void
@@ -54,34 +58,74 @@ class OpenApiV3Reader
                 : sprintf('%s/%s/apis/%s/%s', $this->baseUrl, self::OPENAPI_PATH, $api->group, $api->version);
 
             $spec = Reader::readFromJsonFile($apiPath);
-            $this->resolveSchemas($spec, $model);
-            $this->resolveService($spec, $model);
+
+            // Normalize group for core API
+            $group = $api->isCore() ? '' : $api->group;
+
+            $this->resolveSchemas($spec, $model, $group, $api->version);
+            $this->resolveService($spec, $model, $group, $api->version);
         }
     }
 
-    protected function resolveSchemas(OpenApi $openApi, Model $model): void
+    private function initializeExternalTypeRegistry(): ExternalTypeRegistry
+    {
+        $registry = new ExternalTypeRegistry();
+
+        if (null === $this->config->externalSdkPath) {
+            return $registry;
+        }
+
+        if (!is_dir($this->config->externalSdkPath)) {
+            throw new \RuntimeException(sprintf('External SDK path "%s" does not exist', $this->config->externalSdkPath));
+        }
+
+        $registry->scan($this->config->externalSdkPath);
+
+        return $registry;
+    }
+
+    protected function resolveSchemas(OpenApi $openApi, Model $model, string $group, string $version): void
     {
         $schemas = $openApi->components->schemas ?? [];
 
+        // First pass: Create all named schemas
         /** @var SchemaSpec $schemaSpecs */
         foreach ($schemas as $name => $schemaSpecs) {
-            if ($model->hasSchema($name) || isset($this->config->schemasOverride[$name])) {
+            // Skip if schema already exists in model
+            if ($model->hasSchema($name)) {
+                continue;
+            }
+
+            // Skip if schema has a system override (handled by TypeExtractor)
+            if ($this->typeExtractor->isSystemOverride($name)) {
+                continue;
+            }
+
+            // Skip if schema has a custom config override
+            if (isset($this->config->schemasOverride[$name])) {
+                continue;
+            }
+
+            // Skip if schema exists in external SDK
+            if ($this->externalTypeRegistry->hasSchema($name)) {
                 continue;
             }
 
             $schema = new Schema($name);
             $schema->setDescription($schemaSpecs->description);
             $schema->setGroupVersionKind($this->createGroupVersionKind($schemaSpecs));
-            $schema->setClassMetadata($this->classMetadataExtractor->extractForSchema($schemaSpecs));
+            $schema->setClassMetadata($this->classMetadataExtractor->extractForSchema($schemaSpecs, $group, $version));
             $model->addSchema($schema);
         }
 
+        // Second pass: Resolve properties for all named schemas
+        // Inline schemas will be generated on-the-fly by TypeExtractor when encountered
         /** @var SchemaSpec $schemaSpecs */
         foreach ($schemas as $name => $schemaSpecs) {
             if ($model->hasSchema($name)) {
                 $schema = $model->getSchema($name);
                 foreach ($schemaSpecs->properties as $propertyName => $propertySpec) {
-                    $type = $this->typeExtractor->extract($propertySpec, $model);
+                    $type = $this->typeExtractor->extract($propertySpec, $model, $group, $version);
                     if (!in_array($propertyName, $schemaSpecs->required ?? [])) {
                         $type = Type::nullable($type);
                     }
@@ -95,7 +139,7 @@ class OpenApiV3Reader
         }
     }
 
-    protected function resolveService(OpenApi $openApi, Model $model): void
+    protected function resolveService(OpenApi $openApi, Model $model, string $group, string $version): void
     {
         foreach ($openApi->paths as $path => $pathSpecs) {
             foreach ($pathSpecs->getOperations() as $operationSpec) {
@@ -103,7 +147,7 @@ class OpenApiV3Reader
                     continue;
                 }
 
-                $serviceClassMetadata = $this->classMetadataExtractor->extractForService($operationSpec);
+                $serviceClassMetadata = $this->classMetadataExtractor->extractForService($operationSpec, $group, $version);
                 $serviceName = u($serviceClassMetadata->name)->replace('\\', '.')->lower();
 
                 if (!$model->hasService($serviceName)) {
@@ -112,7 +156,7 @@ class OpenApiV3Reader
                     $model->addService($service);
                 }
 
-                $operation = $this->createOperation($operationSpec, $path, $pathSpecs, $model);
+                $operation = $this->createOperation($operationSpec, $path, $pathSpecs, $model, $group, $version);
 
                 // deprecated operations
                 if (in_array($operation->type, ['watch', 'watchlist'])) {
@@ -124,7 +168,7 @@ class OpenApiV3Reader
         }
     }
 
-    private function createOperation(OperationSpec $operationSpecs, string $path, PathItem $pathSpecs, Model $model): Operation
+    private function createOperation(OperationSpec $operationSpecs, string $path, PathItem $pathSpecs, Model $model, string $group, string $version): Operation
     {
         $part = $operationSpecs->getDocumentPosition()?->getPath() ?? [];
         $verb = VerbEnum::from(end($part));
@@ -149,7 +193,7 @@ class OpenApiV3Reader
         foreach ($specParameters as $specParameter) {
             $parameter = new Parameter(
                 $specParameter->name,
-                $this->typeExtractor->extract($specParameter->schema, $model), /* @phpstan-ignore argument.type */
+                $this->typeExtractor->extract($specParameter->schema, $model, $group, $version), /* @phpstan-ignore argument.type */
                 $specParameter->description,
             );
 
@@ -162,8 +206,8 @@ class OpenApiV3Reader
             }
         }
 
-        $operation->bodyType = $this->extractRequestBodyType($operationSpecs, $model);
-        $operation->responseType = $this->extractResponseType($operationSpecs, $model);
+        $operation->bodyType = $this->extractRequestBodyType($operationSpecs, $model, $group, $version);
+        $operation->responseType = $this->extractResponseType($operationSpecs, $model, $group, $version);
 
         return $operation;
     }
@@ -205,26 +249,18 @@ class OpenApiV3Reader
             ->toString();
     }
 
-    private function extractRequestBodyType(OperationSpec $operationSpec, Model $model): ?Type
+    private function extractRequestBodyType(OperationSpec $operationSpec, Model $model, string $group, string $version): ?Type
     {
         if (!$operationSpec->requestBody) {
             return null;
         }
 
-        if (isset($operationSpec->requestBody->content['application/json'])) {
-            $requestSpec = $operationSpec->requestBody->content['application/json']->schema;
-        } elseif (isset($operationSpec->requestBody->content['application/merge-patch+json'])) {
-            $requestSpec = $operationSpec->requestBody->content['application/merge-patch+json']->schema;
-        } elseif (isset($operationSpec->requestBody->content['*/*'])) {
-            $requestSpec = $operationSpec->requestBody->content['*/*']->schema;
-        } else {
-            return null;
-        }
+        $schema = $this->extractSchemaFromContent($operationSpec->requestBody->content ?? []);
 
-        return $this->typeExtractor->extract($requestSpec, $model);
+        return $schema ? $this->typeExtractor->extract($schema, $model, $group, $version) : null;
     }
 
-    private function extractResponseType(OperationSpec $operationSpecs, Model $model): ?Type
+    private function extractResponseType(OperationSpec $operationSpecs, Model $model, string $group, string $version): ?Type
     {
         $responses = $operationSpecs->responses ? iterator_to_array($operationSpecs->responses->getIterator()) : [];
         if (0 === count($responses)) {
@@ -232,14 +268,26 @@ class OpenApiV3Reader
         }
 
         $response = current($responses);
-        if (isset($response->content['application/json'])) {
-            $responseSpec = $response->content['application/json']->schema;
-        } elseif (isset($response->content['*/*'])) {
-            $responseSpec = $response->content['*/*']->schema;
-        } else {
-            return null;
+        $schema = $this->extractSchemaFromContent($response->content ?? []);
+
+        return $schema ? $this->typeExtractor->extract($schema, $model, $group, $version) : null;
+    }
+
+    /**
+     * Extract schema from content types, trying common types in order of preference.
+     *
+     * @param array<string, mixed> $content
+     */
+    private function extractSchemaFromContent(array $content): ?SchemaSpec
+    {
+        $contentTypes = ['application/json', 'application/merge-patch+json', '*/*'];
+
+        foreach ($contentTypes as $contentType) {
+            if (isset($content[$contentType]) && isset($content[$contentType]->schema)) { /* @phpstan-ignore property.nonObject */
+                return $content[$contentType]->schema;
+            }
         }
 
-        return $this->typeExtractor->extract($responseSpec, $model);
+        return null;
     }
 }

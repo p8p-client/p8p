@@ -99,12 +99,12 @@ delete collection of RuntimeClass
 **Method Signature:**
 ```php
 $runtimeClassApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -201,9 +201,9 @@ delete a RuntimeClass
 ```php
 $runtimeClassApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -211,7 +211,7 @@ $runtimeClassApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the RuntimeClass |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 

@@ -41,7 +41,7 @@ list or watch objects of kind Role
 $roleApi->list(
     string $namespace,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleList>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleList>
 ```
 
 **Parameters:**
@@ -79,9 +79,9 @@ create a Role
 ```php
 $roleApi->create(
     string $namespace,
-    P8p\Sdk\Schema\Rbac\V1\Role $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\Role $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\Role>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\Role>
 ```
 
 **Parameters:**
@@ -89,7 +89,7 @@ $roleApi->create(
 | Name | Type | Description |
 |------|------|-------------|
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Rbac\V1\Role` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\Role` |  |
 
 **Query Parameters:**
 
@@ -113,9 +113,9 @@ delete collection of Role
 ```php
 $roleApi->deleteCollection(
     string $namespace,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -123,7 +123,7 @@ $roleApi->deleteCollection(
 | Name | Type | Description |
 |------|------|-------------|
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -159,7 +159,7 @@ $roleApi->read(
     string $name,
     string $namespace,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\Role>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\Role>
 ```
 
 **Parameters:**
@@ -189,9 +189,9 @@ replace the specified Role
 $roleApi->replace(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Rbac\V1\Role $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\Role $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\Role>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\Role>
 ```
 
 **Parameters:**
@@ -200,7 +200,7 @@ $roleApi->replace(
 |------|------|-------------|
 | `name` | `string` | name of the Role |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Rbac\V1\Role` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\Role` |  |
 
 **Query Parameters:**
 
@@ -225,9 +225,9 @@ delete a Role
 $roleApi->delete(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -236,7 +236,7 @@ $roleApi->delete(
 |------|------|-------------|
 | `name` | `string` | name of the Role |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -265,7 +265,7 @@ $roleApi->patch(
     string $namespace,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\Role>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\Role>
 ```
 
 **Parameters:**
@@ -299,7 +299,7 @@ list or watch objects of kind Role
 ```php
 $roleApi->listForAllNamespaces(
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleList>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleList>
 ```
 
 
