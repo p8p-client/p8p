@@ -22,6 +22,8 @@ class Service
 
     private ?ClassMetadata $classMetadata = null;
 
+    private ?GroupVersionKind $groupVersionKind = null;
+
     public function __construct(private readonly string $name)
     {
     }
@@ -78,10 +80,17 @@ class Service
 
     public function getGroupVersionKind(): GroupVersionKind
     {
-        foreach ($this->operations as $operation) {
-            return $operation->groupVersionKind;
+        if (!$this->groupVersionKind) {
+            throw new ModelException('Group version kind is not set for service '.$this->name);
         }
 
-        throw new ModelException('No operation found for service '.$this->name);
+        return $this->groupVersionKind;
+    }
+
+    public function setGroupVersionKind(GroupVersionKind $groupVersionKind): self
+    {
+        $this->groupVersionKind = $groupVersionKind;
+
+        return $this;
     }
 }

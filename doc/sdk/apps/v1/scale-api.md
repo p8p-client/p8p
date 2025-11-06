@@ -2,7 +2,7 @@
 
 [← Back to Index](../../index.md)
 
-- **API Group:** autoscaling
+- **API Group:** apps
 - **API Version:** v1
 - **Full Class Name:** `P8p\Sdk\Api\Apps\V1\ScaleApi`
 

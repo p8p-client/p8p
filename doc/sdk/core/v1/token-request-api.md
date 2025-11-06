@@ -1,51 +1,51 @@
-# EvictionApi
+# TokenRequestApi
 
 [← Back to Index](../../index.md)
 
-- **API Group:** policy
+- **API Group:** Core
 - **API Version:** v1
-- **Full Class Name:** `P8p\Sdk\Api\Core\V1\EvictionApi`
+- **Full Class Name:** `P8p\Sdk\Api\Core\V1\TokenRequestApi`
 
 ---
 
 ## Table of Contents
 
-- [createCoreV1Pod](#createCoreV1Pod)
+- [createCoreV1ServiceAccountToken](#createCoreV1ServiceAccountToken)
 
 ---
 
 ## Usage
 
 ```php
-use P8p\Sdk\Api\Core\V1\EvictionApi;
+use P8p\Sdk\Api\Core\V1\TokenRequestApi;
 
-$evictionApi = $client->getApi(EvictionApi::class);
+$tokenRequestApi = $client->getApi(TokenRequestApi::class);
 ```
 
 ## Operations
 
-### createCoreV1Pod
+### createCoreV1ServiceAccountToken
 
-create eviction of a Pod
+create token of a ServiceAccount
 
 
 **Method Signature:**
 ```php
-$evictionApi->createCoreV1Pod(
+$tokenRequestApi->createCoreV1ServiceAccountToken(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Core\V1\Eviction $body
+    P8p\Sdk\Schema\Core\V1\TokenRequest $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Core\V1\Eviction>
+): Response<P8p\Sdk\Schema\Core\V1\TokenRequest>
 ```
 
 **Parameters:**
 
 | Name | Type | Description |
 |------|------|-------------|
-| `name` | `string` | name of the Eviction |
+| `name` | `string` | name of the TokenRequest |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Core\V1\Eviction` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\TokenRequest` |  |
 
 **Query Parameters:**
 

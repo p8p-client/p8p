@@ -151,8 +151,16 @@ class OpenApiV3Reader
                 $serviceName = u($serviceClassMetadata->name)->replace('\\', '.')->lower();
 
                 if (!$model->hasService($serviceName)) {
+                    $operationGvk = $this->createGroupVersionKind($operationSpec);
+                    $serviceGvk = new GroupVersionKind(
+                        $group,
+                        $version,
+                        $operationGvk->kind
+                    );
+
                     $service = new Service($serviceName);
                     $service->setClassMetadata($serviceClassMetadata);
+                    $service->setGroupVersionKind($serviceGvk);
                     $model->addService($service);
                 }
 

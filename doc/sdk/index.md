@@ -10,6 +10,7 @@ This section lists all the APIs that are available through the SDK, providing a 
 - [ConfigMapApi (v1)](./core/v1/config-map-api.md)
 - [EndpointsApi (v1)](./core/v1/endpoints-api.md)
 - [EventApi (v1)](./core/v1/event-api.md)
+- [EvictionApi (v1)](./core/v1/eviction-api.md)
 - [LimitRangeApi (v1)](./core/v1/limit-range-api.md)
 - [NamespaceK8sApi (v1)](./core/v1/namespace-k8s-api.md)
 - [NodeApi (v1)](./core/v1/node-api.md)
@@ -24,25 +25,12 @@ This section lists all the APIs that are available through the SDK, providing a 
 - [PodTemplateApi (v1)](./core/v1/pod-template-api.md)
 - [ReplicationControllerApi (v1)](./core/v1/replication-controller-api.md)
 - [ResourceQuotaApi (v1)](./core/v1/resource-quota-api.md)
+- [ScaleApi (v1)](./core/v1/scale-api.md)
 - [SecretApi (v1)](./core/v1/secret-api.md)
 - [ServiceAccountApi (v1)](./core/v1/service-account-api.md)
 - [ServiceApi (v1)](./core/v1/service-api.md)
 - [ServiceProxyOptionsApi (v1)](./core/v1/service-proxy-options-api.md)
-
-## policy
-- [EvictionApi (v1)](./policy/v1/eviction-api.md)
-- [PodDisruptionBudgetApi (v1)](./policy/v1/pod-disruption-budget-api.md)
-
-## autoscaling
-- [HorizontalPodAutoscalerApi (v1)](./autoscaling/v1/horizontal-pod-autoscaler-api.md)
-- [HorizontalPodAutoscalerApi (v2)](./autoscaling/v2/horizontal-pod-autoscaler-api.md)
-- [ScaleApi (v1)](./autoscaling/v1/scale-api.md)
-- [ScaleApi (v1)](./autoscaling/v1/scale-api.md)
-
-## authentication.k8s.io
-- [SelfSubjectReviewApi (v1)](./authentication.k8s.io/v1/self-subject-review-api.md)
-- [TokenRequestApi (v1)](./authentication.k8s.io/v1/token-request-api.md)
-- [TokenReviewApi (v1)](./authentication.k8s.io/v1/token-review-api.md)
+- [TokenRequestApi (v1)](./core/v1/token-request-api.md)
 
 ## admissionregistration.k8s.io
 - [MutatingWebhookConfigurationApi (v1)](./admissionregistration.k8s.io/v1/mutating-webhook-configuration-api.md)
@@ -61,13 +49,22 @@ This section lists all the APIs that are available through the SDK, providing a 
 - [DaemonSetApi (v1)](./apps/v1/daemon-set-api.md)
 - [DeploymentApi (v1)](./apps/v1/deployment-api.md)
 - [ReplicaSetApi (v1)](./apps/v1/replica-set-api.md)
+- [ScaleApi (v1)](./apps/v1/scale-api.md)
 - [StatefulSetApi (v1)](./apps/v1/stateful-set-api.md)
+
+## authentication.k8s.io
+- [SelfSubjectReviewApi (v1)](./authentication.k8s.io/v1/self-subject-review-api.md)
+- [TokenReviewApi (v1)](./authentication.k8s.io/v1/token-review-api.md)
 
 ## authorization.k8s.io
 - [LocalSubjectAccessReviewApi (v1)](./authorization.k8s.io/v1/local-subject-access-review-api.md)
 - [SelfSubjectAccessReviewApi (v1)](./authorization.k8s.io/v1/self-subject-access-review-api.md)
 - [SelfSubjectRulesReviewApi (v1)](./authorization.k8s.io/v1/self-subject-rules-review-api.md)
 - [SubjectAccessReviewApi (v1)](./authorization.k8s.io/v1/subject-access-review-api.md)
+
+## autoscaling
+- [HorizontalPodAutoscalerApi (v1)](./autoscaling/v1/horizontal-pod-autoscaler-api.md)
+- [HorizontalPodAutoscalerApi (v2)](./autoscaling/v2/horizontal-pod-autoscaler-api.md)
 
 ## batch
 - [CronJobApi (v1)](./batch/v1/cron-job-api.md)
@@ -96,6 +93,9 @@ This section lists all the APIs that are available through the SDK, providing a 
 
 ## node.k8s.io
 - [RuntimeClassApi (v1)](./node.k8s.io/v1/runtime-class-api.md)
+
+## policy
+- [PodDisruptionBudgetApi (v1)](./policy/v1/pod-disruption-budget-api.md)
 
 ## rbac.authorization.k8s.io
 - [ClusterRoleApi (v1)](./rbac.authorization.k8s.io/v1/cluster-role-api.md)
