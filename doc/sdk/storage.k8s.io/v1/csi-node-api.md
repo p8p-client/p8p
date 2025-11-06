@@ -99,12 +99,12 @@ delete collection of CSINode
 **Method Signature:**
 ```php
 $CSINodeApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -201,7 +201,7 @@ delete a CSINode
 ```php
 $CSINodeApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
 ): Response<P8p\Sdk\Schema\Storage\V1\CSINode>
 ```
@@ -211,7 +211,7 @@ $CSINodeApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the CSINode |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 

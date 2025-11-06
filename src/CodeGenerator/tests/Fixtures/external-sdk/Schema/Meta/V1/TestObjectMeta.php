@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace P8p\Sdk\Schema\Meta\V1;
+namespace P8p\Sdk\Schema\Core\V1;
 
 use P8p\Client\Attribute\K8sSchemaRef;
 

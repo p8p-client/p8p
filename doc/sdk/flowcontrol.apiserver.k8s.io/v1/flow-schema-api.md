@@ -42,7 +42,7 @@ list or watch objects of kind FlowSchema
 ```php
 $flowSchemaApi->list(
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchemaList>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchemaList>
 ```
 
 
@@ -74,12 +74,12 @@ create a FlowSchema
 **Method Signature:**
 ```php
 $flowSchemaApi->create(
-    P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema $body
+    P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
-| `body` | `P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema` |  |
+| `body` | `P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema` |  |
 
 **Query Parameters:**
 
@@ -102,12 +102,12 @@ delete collection of FlowSchema
 **Method Signature:**
 ```php
 $flowSchemaApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -142,7 +142,7 @@ read the specified FlowSchema
 $flowSchemaApi->read(
     string $name,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
 **Parameters:**
@@ -170,9 +170,9 @@ replace the specified FlowSchema
 ```php
 $flowSchemaApi->replace(
     string $name,
-    P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema $body
+    P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
 **Parameters:**
@@ -180,7 +180,7 @@ $flowSchemaApi->replace(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the FlowSchema |
-| `body` | `P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema` |  |
+| `body` | `P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema` |  |
 
 **Query Parameters:**
 
@@ -204,9 +204,9 @@ delete a FlowSchema
 ```php
 $flowSchemaApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -214,7 +214,7 @@ $flowSchemaApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the FlowSchema |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -242,7 +242,7 @@ $flowSchemaApi->patch(
     string $name,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
 **Parameters:**
@@ -276,7 +276,7 @@ read status of the specified FlowSchema
 $flowSchemaApi->readStatus(
     string $name,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
 **Parameters:**
@@ -304,9 +304,9 @@ replace status of the specified FlowSchema
 ```php
 $flowSchemaApi->replaceStatus(
     string $name,
-    P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema $body
+    P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
 **Parameters:**
@@ -314,7 +314,7 @@ $flowSchemaApi->replaceStatus(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the FlowSchema |
-| `body` | `P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema` |  |
+| `body` | `P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema` |  |
 
 **Query Parameters:**
 
@@ -340,7 +340,7 @@ $flowSchemaApi->patchStatus(
     string $name,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Flowcontrol\V1\FlowSchema>
+): Response<P8p\Sdk\Schema\FlowcontrolApiserver\V1\FlowSchema>
 ```
 
 **Parameters:**

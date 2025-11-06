@@ -39,7 +39,7 @@ list or watch objects of kind ClusterRoleBinding
 ```php
 $clusterRoleBindingApi->list(
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRoleBindingList>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBindingList>
 ```
 
 
@@ -71,12 +71,12 @@ create a ClusterRoleBinding
 **Method Signature:**
 ```php
 $clusterRoleBindingApi->create(
-    P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding>
 ```
 
-| `body` | `P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding` |  |
 
 **Query Parameters:**
 
@@ -99,12 +99,12 @@ delete collection of ClusterRoleBinding
 **Method Signature:**
 ```php
 $clusterRoleBindingApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -139,7 +139,7 @@ read the specified ClusterRoleBinding
 $clusterRoleBindingApi->read(
     string $name,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding>
 ```
 
 **Parameters:**
@@ -167,9 +167,9 @@ replace the specified ClusterRoleBinding
 ```php
 $clusterRoleBindingApi->replace(
     string $name,
-    P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding>
 ```
 
 **Parameters:**
@@ -177,7 +177,7 @@ $clusterRoleBindingApi->replace(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the ClusterRoleBinding |
-| `body` | `P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding` |  |
 
 **Query Parameters:**
 
@@ -201,9 +201,9 @@ delete a ClusterRoleBinding
 ```php
 $clusterRoleBindingApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -211,7 +211,7 @@ $clusterRoleBindingApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the ClusterRoleBinding |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -239,7 +239,7 @@ $clusterRoleBindingApi->patch(
     string $name,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleBinding>
 ```
 
 **Parameters:**

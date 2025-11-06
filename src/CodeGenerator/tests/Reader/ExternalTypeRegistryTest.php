@@ -39,14 +39,14 @@ class ExternalTypeRegistryTest extends TestCase
         // Should find ObjectMeta schema
         $this->assertTrue($this->registry->hasSchema('io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta'));
         $this->assertEquals(
-            'P8p\\Sdk\\Schema\\Meta\\V1\\TestObjectMeta',
+            'P8p\\Sdk\\Schema\\Core\\V1\\TestObjectMeta',
             $this->registry->resolveSchemaName('io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta')
         );
 
         // Should find TypeMeta schema
         $this->assertTrue($this->registry->hasSchema('io.k8s.apimachinery.pkg.apis.meta.v1.TypeMeta'));
         $this->assertEquals(
-            'P8p\\Sdk\\Schema\\Meta\\V1\\TypeMeta',
+            'P8p\\Sdk\\Schema\\Core\\V1\\TypeMeta',
             $this->registry->resolveSchemaName('io.k8s.apimachinery.pkg.apis.meta.v1.TypeMeta')
         );
     }

@@ -46,7 +46,9 @@ class TypeExtractorTest extends TestCase
             documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
         $this->externalTypeRegistry = new ExternalTypeRegistry();
-        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry);
+        $classMetadataExtractor = new \P8p\CodeGenerator\Reader\ClassMetadataExtractor($this->config);
+        $inlineSchemaGenerator = new \P8p\CodeGenerator\Reader\InlineSchemaGenerator($classMetadataExtractor);
+        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry, $inlineSchemaGenerator);
         $this->model = new Model();
     }
 
@@ -57,7 +59,7 @@ class TypeExtractorTest extends TestCase
         $columnDefSchema = $this->getSchema('io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition');
         /** @var OpenApiSchema $nameProperty */
         $nameProperty = $columnDefSchema->properties['name'];
-        $type = $this->extractor->extract($nameProperty, $this->model);
+        $type = $this->extractor->extract($nameProperty, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertEquals('string', (string) $type);
@@ -69,7 +71,7 @@ class TypeExtractorTest extends TestCase
         /** @var OpenApiSchema $priorityProperty */
         $priorityProperty = $columnDefSchema->properties['priority'];
 
-        $type = $this->extractor->extract($priorityProperty, $this->model);
+        $type = $this->extractor->extract($priorityProperty, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertEquals('int', (string) $type);
@@ -81,7 +83,7 @@ class TypeExtractorTest extends TestCase
         /** @var OpenApiSchema $shortNamesProperty */
         $shortNamesProperty = $namesSchema->properties['shortNames'];
 
-        $type = $this->extractor->extract($shortNamesProperty, $this->model);
+        $type = $this->extractor->extract($shortNamesProperty, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertEquals('list<string>', (string) $type);
@@ -101,7 +103,7 @@ class TypeExtractorTest extends TestCase
         /** @var OpenApiSchema $metadataProperty */
         $metadataProperty = $crdSchema->properties['metadata'];
 
-        $type = $this->extractor->extract($metadataProperty, $this->model);
+        $type = $this->extractor->extract($metadataProperty, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertEquals('P8p\\Sdk\\Schema\\Meta\\V1\\ObjectMeta', (string) $type);
@@ -119,11 +121,13 @@ class TypeExtractorTest extends TestCase
             documentationTemplateDir: __DIR__.'/../Fixtures/templates',
         );
         $this->externalTypeRegistry = new ExternalTypeRegistry();
-        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry);
+        $classMetadataExtractor = new \P8p\CodeGenerator\Reader\ClassMetadataExtractor($this->config);
+        $inlineSchemaGenerator = new \P8p\CodeGenerator\Reader\InlineSchemaGenerator($classMetadataExtractor);
+        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry, $inlineSchemaGenerator);
 
         $openApiSchema = $this->createOpenApiSchemaWithPath(['components', 'schemas', 'io.k8s.IntOrString']);
 
-        $type = $this->extractor->extract($openApiSchema, $this->model);
+        $type = $this->extractor->extract($openApiSchema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertSame($overrideType, $type);
     }
@@ -132,11 +136,13 @@ class TypeExtractorTest extends TestCase
     {
         // Scan external SDK fixtures
         $this->externalTypeRegistry->scan(__DIR__.'/../Fixtures/external-sdk');
-        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry);
+        $classMetadataExtractor = new \P8p\CodeGenerator\Reader\ClassMetadataExtractor($this->config);
+        $inlineSchemaGenerator = new \P8p\CodeGenerator\Reader\InlineSchemaGenerator($classMetadataExtractor);
+        $this->extractor = new TypeExtractor($this->config, $this->externalTypeRegistry, $inlineSchemaGenerator);
 
         $openApiSchema = $this->createOpenApiSchemaWithPath(['components', 'schemas', 'io.k8s.api.core.v1.Pod']);
 
-        $type = $this->extractor->extract($openApiSchema, $this->model);
+        $type = $this->extractor->extract($openApiSchema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertEquals('P8p\\Sdk\\Schema\\Core\\V1\\TestPod', (string) $type);
@@ -146,7 +152,7 @@ class TypeExtractorTest extends TestCase
     {
         $schema = $this->createOpenApiSchema(['type' => 'string']);
 
-        $type = $this->extractor->extract($schema, $this->model);
+        $type = $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertStringContainsString('string', (string) $type);
@@ -156,7 +162,7 @@ class TypeExtractorTest extends TestCase
     {
         $schema = $this->createOpenApiSchema(['type' => 'integer']);
 
-        $type = $this->extractor->extract($schema, $this->model);
+        $type = $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertStringContainsString('int', (string) $type);
@@ -166,7 +172,7 @@ class TypeExtractorTest extends TestCase
     {
         $schema = $this->createOpenApiSchema(['type' => 'boolean']);
 
-        $type = $this->extractor->extract($schema, $this->model);
+        $type = $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertStringContainsString('bool', (string) $type);
@@ -176,7 +182,7 @@ class TypeExtractorTest extends TestCase
     {
         $schema = $this->createOpenApiSchema(['type' => 'number']);
 
-        $type = $this->extractor->extract($schema, $this->model);
+        $type = $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertStringContainsString('float', (string) $type);
@@ -186,7 +192,7 @@ class TypeExtractorTest extends TestCase
     {
         $schema = $this->createOpenApiSchema(['type' => 'array']);
 
-        $type = $this->extractor->extract($schema, $this->model);
+        $type = $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
 
         $this->assertInstanceOf(Type::class, $type);
         $this->assertStringContainsString('array', (string) $type);
@@ -201,7 +207,7 @@ class TypeExtractorTest extends TestCase
         $this->expectException(ReaderException::class);
         $this->expectExceptionMessage('Unable to map type. Missing schema "io.k8s.api.core.v1.MissingSchema"');
 
-        $this->extractor->extract($openApiSchema, $this->model);
+        $this->extractor->extract($openApiSchema, $this->model, 'apiextensions.k8s.io', 'v1');
     }
 
     public function testExtractThrowsExceptionForUnknownType(): void
@@ -211,7 +217,7 @@ class TypeExtractorTest extends TestCase
         $this->expectException(ReaderException::class);
         $this->expectExceptionMessage('Unable to map type from "unknown"');
 
-        $this->extractor->extract($schema, $this->model);
+        $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
     }
 
     public function testExtractThrowsExceptionWhenNoTypeInformation(): void
@@ -221,7 +227,7 @@ class TypeExtractorTest extends TestCase
         $this->expectException(ReaderException::class);
         $this->expectExceptionMessage('Unable to convert type for field');
 
-        $this->extractor->extract($schema, $this->model);
+        $this->extractor->extract($schema, $this->model, 'apiextensions.k8s.io', 'v1');
     }
 
     /**

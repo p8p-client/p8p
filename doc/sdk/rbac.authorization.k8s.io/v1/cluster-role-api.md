@@ -39,7 +39,7 @@ list or watch objects of kind ClusterRole
 ```php
 $clusterRoleApi->list(
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRoleList>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRoleList>
 ```
 
 
@@ -71,12 +71,12 @@ create a ClusterRole
 **Method Signature:**
 ```php
 $clusterRoleApi->create(
-    P8p\Sdk\Schema\Rbac\V1\ClusterRole $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRole>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole>
 ```
 
-| `body` | `P8p\Sdk\Schema\Rbac\V1\ClusterRole` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole` |  |
 
 **Query Parameters:**
 
@@ -99,12 +99,12 @@ delete collection of ClusterRole
 **Method Signature:**
 ```php
 $clusterRoleApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -139,7 +139,7 @@ read the specified ClusterRole
 $clusterRoleApi->read(
     string $name,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRole>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole>
 ```
 
 **Parameters:**
@@ -167,9 +167,9 @@ replace the specified ClusterRole
 ```php
 $clusterRoleApi->replace(
     string $name,
-    P8p\Sdk\Schema\Rbac\V1\ClusterRole $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRole>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole>
 ```
 
 **Parameters:**
@@ -177,7 +177,7 @@ $clusterRoleApi->replace(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the ClusterRole |
-| `body` | `P8p\Sdk\Schema\Rbac\V1\ClusterRole` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole` |  |
 
 **Query Parameters:**
 
@@ -201,9 +201,9 @@ delete a ClusterRole
 ```php
 $clusterRoleApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -211,7 +211,7 @@ $clusterRoleApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the ClusterRole |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -239,7 +239,7 @@ $clusterRoleApi->patch(
     string $name,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\ClusterRole>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\ClusterRole>
 ```
 
 **Parameters:**

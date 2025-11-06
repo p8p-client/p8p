@@ -99,12 +99,12 @@ delete collection of StorageClass
 **Method Signature:**
 ```php
 $storageClassApi->deleteCollection(
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -201,7 +201,7 @@ delete a StorageClass
 ```php
 $storageClassApi->delete(
     string $name,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
 ): Response<P8p\Sdk\Schema\Storage\V1\StorageClass>
 ```
@@ -211,7 +211,7 @@ $storageClassApi->delete(
 | Name | Type | Description |
 |------|------|-------------|
 | `name` | `string` | name of the StorageClass |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 

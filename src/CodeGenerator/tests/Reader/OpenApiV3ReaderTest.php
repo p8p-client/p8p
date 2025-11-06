@@ -125,18 +125,18 @@ class OpenApiV3ReaderTest extends TestCase
 
         // First resolve schemas (required for type extraction)
         $reader = new class('http://localhost', $this->config) extends OpenApiV3Reader {
-            public function publicResolveSchemas(OpenApi $openApi, Model $model): void
+            public function publicResolveSchemas(OpenApi $openApi, Model $model, string $group, string $version): void
             {
-                $this->resolveSchemas($openApi, $model);
+                $this->resolveSchemas($openApi, $model, $group, $version);
             }
 
-            public function publicResolveService(OpenApi $openApi, Model $model): void
+            public function publicResolveService(OpenApi $openApi, Model $model, string $group, string $version): void
             {
-                $this->resolveService($openApi, $model);
+                $this->resolveService($openApi, $model, $group, $version);
             }
         };
 
-        $reader->publicResolveSchemas($openApi, $model);
-        $reader->publicResolveService($openApi, $model);
+        $reader->publicResolveSchemas($openApi, $model, 'apiextensions.k8s.io', 'v1');
+        $reader->publicResolveService($openApi, $model, 'apiextensions.k8s.io', 'v1');
     }
 }

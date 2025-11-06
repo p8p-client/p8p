@@ -4,7 +4,7 @@
 
 - **API Group:** policy
 - **API Version:** v1
-- **Full Class Name:** `P8p\Sdk\Api\Policy\V1\EvictionApi`
+- **Full Class Name:** `P8p\Sdk\Api\Core\V1\EvictionApi`
 
 ---
 
@@ -17,7 +17,7 @@
 ## Usage
 
 ```php
-use P8p\Sdk\Api\Policy\V1\EvictionApi;
+use P8p\Sdk\Api\Core\V1\EvictionApi;
 
 $evictionApi = $client->getApi(EvictionApi::class);
 ```
@@ -34,9 +34,9 @@ create eviction of a Pod
 $evictionApi->createCoreV1Pod(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Policy\V1\Eviction $body
+    P8p\Sdk\Schema\Core\V1\Eviction $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Policy\V1\Eviction>
+): Response<P8p\Sdk\Schema\Core\V1\Eviction>
 ```
 
 **Parameters:**
@@ -45,7 +45,7 @@ $evictionApi->createCoreV1Pod(
 |------|------|-------------|
 | `name` | `string` | name of the Eviction |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Policy\V1\Eviction` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\Eviction` |  |
 
 **Query Parameters:**
 

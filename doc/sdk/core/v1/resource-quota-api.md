@@ -116,9 +116,9 @@ delete collection of ResourceQuota
 ```php
 $resourceQuotaApi->deleteCollection(
     string $namespace,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -126,7 +126,7 @@ $resourceQuotaApi->deleteCollection(
 | Name | Type | Description |
 |------|------|-------------|
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -228,7 +228,7 @@ delete a ResourceQuota
 $resourceQuotaApi->delete(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
 ): Response<P8p\Sdk\Schema\Core\V1\ResourceQuota>
 ```
@@ -239,7 +239,7 @@ $resourceQuotaApi->delete(
 |------|------|-------------|
 | `name` | `string` | name of the ResourceQuota |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 

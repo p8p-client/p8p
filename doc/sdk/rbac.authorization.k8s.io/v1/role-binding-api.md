@@ -41,7 +41,7 @@ list or watch objects of kind RoleBinding
 $roleBindingApi->list(
     string $namespace,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleBindingList>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleBindingList>
 ```
 
 **Parameters:**
@@ -79,9 +79,9 @@ create a RoleBinding
 ```php
 $roleBindingApi->create(
     string $namespace,
-    P8p\Sdk\Schema\Rbac\V1\RoleBinding $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding>
 ```
 
 **Parameters:**
@@ -89,7 +89,7 @@ $roleBindingApi->create(
 | Name | Type | Description |
 |------|------|-------------|
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Rbac\V1\RoleBinding` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding` |  |
 
 **Query Parameters:**
 
@@ -113,9 +113,9 @@ delete collection of RoleBinding
 ```php
 $roleBindingApi->deleteCollection(
     string $namespace,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -123,7 +123,7 @@ $roleBindingApi->deleteCollection(
 | Name | Type | Description |
 |------|------|-------------|
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -159,7 +159,7 @@ $roleBindingApi->read(
     string $name,
     string $namespace,
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding>
 ```
 
 **Parameters:**
@@ -189,9 +189,9 @@ replace the specified RoleBinding
 $roleBindingApi->replace(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Rbac\V1\RoleBinding $body
+    P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding>
 ```
 
 **Parameters:**
@@ -200,7 +200,7 @@ $roleBindingApi->replace(
 |------|------|-------------|
 | `name` | `string` | name of the RoleBinding |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Rbac\V1\RoleBinding` |  |
+| `body` | `P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding` |  |
 
 **Query Parameters:**
 
@@ -225,9 +225,9 @@ delete a RoleBinding
 $roleBindingApi->delete(
     string $name,
     string $namespace,
-    P8p\Sdk\Schema\Meta\V1\DeleteOptions $body
+    P8p\Sdk\Schema\Core\V1\DeleteOptions $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Meta\V1\Status>
+): Response<P8p\Sdk\Schema\Core\V1\Status>
 ```
 
 **Parameters:**
@@ -236,7 +236,7 @@ $roleBindingApi->delete(
 |------|------|-------------|
 | `name` | `string` | name of the RoleBinding |
 | `namespace` | `string` | object name and auth scope, such as for teams and projects |
-| `body` | `P8p\Sdk\Schema\Meta\V1\DeleteOptions` |  |
+| `body` | `P8p\Sdk\Schema\Core\V1\DeleteOptions` |  |
 
 **Query Parameters:**
 
@@ -265,7 +265,7 @@ $roleBindingApi->patch(
     string $namespace,
     array $body
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleBinding>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleBinding>
 ```
 
 **Parameters:**
@@ -299,7 +299,7 @@ list or watch objects of kind RoleBinding
 ```php
 $roleBindingApi->listForAllNamespaces(
     ?array $query = null,
-): Response<P8p\Sdk\Schema\Rbac\V1\RoleBindingList>
+): Response<P8p\Sdk\Schema\RbacAuthorization\V1\RoleBindingList>
 ```
 
 
