@@ -71,6 +71,9 @@ class ClientFactory
 
         $options = [
             'base_uri' => $credentials->endpoint,
+            'headers' => [
+                'User-Agent' => 'P8P-Client',
+            ],
             'cafile' => $credentials->caFile,
             'local_cert' => $credentials->certificateFile,
             'local_pk' => $credentials->privateKeyFile,
