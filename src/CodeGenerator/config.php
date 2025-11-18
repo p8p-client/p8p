@@ -29,6 +29,7 @@ return new Config(
         new Api('rbac.authorization.k8s.io', 'v1'),
         new Api('scheduling.k8s.io', 'v1'),
         new Api('storage.k8s.io', 'v1'),
+        new Api('metrics.k8s.io', 'v1beta1'),
     ],
     schemasOverride: [
         // System overrides (IntOrString, Quantity, Time, etc.) are now handled automatically by TypeExtractor.

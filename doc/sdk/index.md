@@ -113,3 +113,7 @@ This section lists all the APIs that are available through the SDK, providing a 
 - [StorageClassApi (v1)](./storage.k8s.io/v1/storage-class-api.md)
 - [VolumeAttachmentApi (v1)](./storage.k8s.io/v1/volume-attachment-api.md)
 
+## metrics.k8s.io
+- [NodeMetricsApi (v1beta1)](./metrics.k8s.io/v1beta1/node-metrics-api.md)
+- [PodMetricsApi (v1beta1)](./metrics.k8s.io/v1beta1/pod-metrics-api.md)
+

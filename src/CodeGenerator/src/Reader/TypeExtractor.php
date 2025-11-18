@@ -304,6 +304,7 @@ class TypeExtractor
             'io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime' => Type::object(\DateTime::class),
             'io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1' => Type::array(),
             'io.k8s.apimachinery.pkg.apis.meta.v1.Patch' => Type::array(),
+            'io.k8s.apimachinery.pkg.apis.meta.v1.Duration' => Type::string(),
             'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceStatus' => Type::array(),
             'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSON' => Type::array(),
             'io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps' => Type::array(),
