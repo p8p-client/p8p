@@ -87,9 +87,11 @@ This section lists all the APIs that are available through the SDK, providing a 
 - [PriorityLevelConfigurationApi (v1)](./flowcontrol.apiserver.k8s.io/v1/priority-level-configuration-api.md)
 
 ## networking.k8s.io
+- [IPAddressApi (v1)](./networking.k8s.io/v1/ip-address-api.md)
 - [IngressApi (v1)](./networking.k8s.io/v1/ingress-api.md)
 - [IngressClassApi (v1)](./networking.k8s.io/v1/ingress-class-api.md)
 - [NetworkPolicyApi (v1)](./networking.k8s.io/v1/network-policy-api.md)
+- [ServiceCIDRApi (v1)](./networking.k8s.io/v1/service-cidr-api.md)
 
 ## node.k8s.io
 - [RuntimeClassApi (v1)](./node.k8s.io/v1/runtime-class-api.md)
