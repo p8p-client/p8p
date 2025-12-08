@@ -8,7 +8,7 @@ on:
 
 jobs:
   php-cs-fixer:
-    name: PHP CS Fixer (PHP ${{ matrix.php-version }})
+    name: PHP CS Fixer (PHP ${{ matrix.php-version }}, Symfony ${{ matrix.symfony-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,14 +27,20 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer global config --no-plugins allow-plugins.symfony/flex true
+          composer global require --no-progress --no-scripts --no-plugins symfony/flex
+
+          composer config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+
           composer install --prefer-dist --no-progress
-          composer all install
+          composer all install --prefer-dist --no-progress
 
       - name: Run PHP CS Fixer
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
 
   phpstan:
-    name: PHPStan (PHP ${{ matrix.php-version }})
+    name: PHPStan (PHP ${{ matrix.php-version }}, Symfony ${{ matrix.symfony-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -53,14 +59,20 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer global config --no-plugins allow-plugins.symfony/flex true
+          composer global require --no-progress --no-scripts --no-plugins symfony/flex
+
+          composer config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+
           composer install --prefer-dist --no-progress
-          composer all install
+          composer all install --prefer-dist --no-progress
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse
 
   rector:
-    name: Rector (PHP ${{ matrix.php-version }})
+    name: Rector (PHP ${{ matrix.php-version }}, Symfony ${{ matrix.symfony-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -79,14 +91,20 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer global config --no-plugins allow-plugins.symfony/flex true
+          composer global require --no-progress --no-scripts --no-plugins symfony/flex
+
+          composer config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+
           composer install --prefer-dist --no-progress
-          composer all install
+          composer all install --prefer-dist --no-progress
 
       - name: Run Rector (dry-run)
         run: vendor/bin/rector process --dry-run
 
   tests:
-    name: Tests (PHP ${{ matrix.php-version }})
+    name: Tests (PHP ${{ matrix.php-version }}, Symfony ${{ matrix.symfony-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -105,8 +123,14 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer global config --no-plugins allow-plugins.symfony/flex true
+          composer global require --no-progress --no-scripts --no-plugins symfony/flex
+
+          composer config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+
           composer install --prefer-dist --no-progress
-          composer all install
+          composer all install --prefer-dist --no-progress
 
       - name: Run Client tests
         run: cd src/Client && vendor/bin/phpunit
@@ -115,7 +139,7 @@ jobs:
         run: cd src/CodeGenerator && vendor/bin/phpunit
 
   functional-tests:
-    name: Functional Tests (PHP ${{ matrix.php-version }} and K3S ${{ matrix.k3s-version }})
+    name: Functional Tests (PHP ${{ matrix.php-version }}, Symfony ${{ matrix.symfony-version }} and K3S ${{ matrix.k3s-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -135,8 +159,14 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer global config --no-plugins allow-plugins.symfony/flex true
+          composer global require --no-progress --no-scripts --no-plugins symfony/flex
+
+          composer config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+
           composer install --prefer-dist --no-progress
-          composer all install
+          composer all install --prefer-dist --no-progress
 
       - name: Setup K3s
         uses: debianmaster/actions-k3s@v1.0.5
