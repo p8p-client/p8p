@@ -27,16 +27,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer global config allow-plugins.symfony/flex true
-          composer global require --no-progress --no-scripts symfony/flex
-          composer global config allow-plugins.soyuka/pmu true
-          composer global require --no-progress --no-scripts soyuka/pmu
-
-          composer config extra.symfony.require "${{ matrix.symfony-version }}"
-          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
-
           composer install --prefer-dist --no-progress
-          composer all install --prefer-dist --no-progress
+          composer all config allow-plugins.symfony/flex true
+          composer all require --no-progress --no-scripts symfony/flex
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all upgrade --prefer-dist --no-progress
 
       - name: Run PHP CS Fixer
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
@@ -61,16 +56,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer global config allow-plugins.symfony/flex true
-          composer global require --no-progress --no-scripts symfony/flex
-          composer global config allow-plugins.soyuka/pmu true
-          composer global require --no-progress --no-scripts soyuka/pmu
-
-          composer config extra.symfony.require "${{ matrix.symfony-version }}"
-          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
-
           composer install --prefer-dist --no-progress
-          composer all install --prefer-dist --no-progress
+          composer all config allow-plugins.symfony/flex true
+          composer all require --no-progress --no-scripts symfony/flex
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all upgrade --prefer-dist --no-progress
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse
@@ -95,16 +85,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer global config allow-plugins.symfony/flex true
-          composer global require --no-progress --no-scripts symfony/flex
-          composer global config allow-plugins.soyuka/pmu true
-          composer global require --no-progress --no-scripts soyuka/pmu
-
-          composer config extra.symfony.require "${{ matrix.symfony-version }}"
-          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
-
           composer install --prefer-dist --no-progress
-          composer all install --prefer-dist --no-progress
+          composer all config allow-plugins.symfony/flex true
+          composer all require --no-progress --no-scripts symfony/flex
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all upgrade --prefer-dist --no-progress
 
       - name: Run Rector (dry-run)
         run: vendor/bin/rector process --dry-run
@@ -129,16 +114,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer global config allow-plugins.symfony/flex true
-          composer global require --no-progress --no-scripts symfony/flex
-          composer global config allow-plugins.soyuka/pmu true
-          composer global require --no-progress --no-scripts soyuka/pmu
-
-          composer config extra.symfony.require "${{ matrix.symfony-version }}"
-          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
-
           composer install --prefer-dist --no-progress
-          composer all install --prefer-dist --no-progress
+          composer all config allow-plugins.symfony/flex true
+          composer all require --no-progress --no-scripts symfony/flex
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all upgrade --prefer-dist --no-progress
 
       - name: Run Client tests
         run: cd src/Client && vendor/bin/phpunit
@@ -167,16 +147,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer global config allow-plugins.symfony/flex true
-          composer global require --no-progress --no-scripts symfony/flex
-          composer global config allow-plugins.soyuka/pmu true
-          composer global require --no-progress --no-scripts soyuka/pmu
-
-          composer config extra.symfony.require "${{ matrix.symfony-version }}"
-          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
-
           composer install --prefer-dist --no-progress
-          composer all install --prefer-dist --no-progress
+          composer all config allow-plugins.symfony/flex true
+          composer all require --no-progress --no-scripts symfony/flex
+          composer all config extra.symfony.require "${{ matrix.symfony-version }}"
+          composer all upgrade --prefer-dist --no-progress
 
       - name: Setup K3s
         uses: debianmaster/actions-k3s@v1.0.5
