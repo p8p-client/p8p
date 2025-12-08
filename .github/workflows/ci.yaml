@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.4']
+        symfony-version: ['8.0.*']
 
     steps:
       - name: Checkout code
@@ -38,6 +39,7 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.4']
+        symfony-version: [ '8.0.*' ]
 
     steps:
       - name: Checkout code
@@ -63,6 +65,7 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.4']
+        symfony-version: ['8.0.*']
 
     steps:
       - name: Checkout code
@@ -87,7 +90,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ['8.4']
+        php-version: ['8.4', '8.5']
+        symfony-version: [ '7.4.*', '8.0.*' ]
 
     steps:
       - name: Checkout code
@@ -116,6 +120,7 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.4']
+        symfony-version: [ '7.4.*', '8.0.*' ]
         k3s-version: ['v1.34.1-k3s1']
 
     steps:
