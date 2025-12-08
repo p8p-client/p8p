@@ -29,6 +29,8 @@ jobs:
         run: |
           composer global config allow-plugins.symfony/flex true
           composer global require --no-progress --no-scripts symfony/flex
+          composer global config allow-plugins.soyuka/pmu true
+          composer global require --no-progress --no-scripts soyuka/pmu
 
           composer config extra.symfony.require "${{ matrix.symfony-version }}"
           composer all config extra.symfony.require "${{ matrix.symfony-version }}"
@@ -61,6 +63,8 @@ jobs:
         run: |
           composer global config allow-plugins.symfony/flex true
           composer global require --no-progress --no-scripts symfony/flex
+          composer global config allow-plugins.soyuka/pmu true
+          composer global require --no-progress --no-scripts soyuka/pmu
 
           composer config extra.symfony.require "${{ matrix.symfony-version }}"
           composer all config extra.symfony.require "${{ matrix.symfony-version }}"
@@ -93,6 +97,8 @@ jobs:
         run: |
           composer global config allow-plugins.symfony/flex true
           composer global require --no-progress --no-scripts symfony/flex
+          composer global config allow-plugins.soyuka/pmu true
+          composer global require --no-progress --no-scripts soyuka/pmu
 
           composer config extra.symfony.require "${{ matrix.symfony-version }}"
           composer all config extra.symfony.require "${{ matrix.symfony-version }}"
@@ -125,6 +131,8 @@ jobs:
         run: |
           composer global config allow-plugins.symfony/flex true
           composer global require --no-progress --no-scripts symfony/flex
+          composer global config allow-plugins.soyuka/pmu true
+          composer global require --no-progress --no-scripts soyuka/pmu
 
           composer config extra.symfony.require "${{ matrix.symfony-version }}"
           composer all config extra.symfony.require "${{ matrix.symfony-version }}"
@@ -161,6 +169,8 @@ jobs:
         run: |
           composer global config allow-plugins.symfony/flex true
           composer global require --no-progress --no-scripts symfony/flex
+          composer global config allow-plugins.soyuka/pmu true
+          composer global require --no-progress --no-scripts soyuka/pmu
 
           composer config extra.symfony.require "${{ matrix.symfony-version }}"
           composer all config extra.symfony.require "${{ matrix.symfony-version }}"
