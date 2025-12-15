@@ -12,15 +12,15 @@
         "php": ">=8.4",
         "p8p/client": "self.version",
         "cebe/php-openapi": "^1.8.0",
-        "symfony/console": "^7.3",
-        "symfony/finder": "^7.3",
-        "symfony/type-info": "^7.3",
+        "symfony/console": "^7.4|^8.0",
+        "symfony/finder": "^7.4|^8.0",
+        "symfony/type-info": "^7.4|^8.0",
         "nette/php-generator": "^v4.2",
         "twig/twig": "^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^12.4.0",
-        "symfony/var-dumper": "^7.3"
+        "symfony/var-dumper": "^7.4|^8.0"
     },
     "autoload": {
         "psr-4": {

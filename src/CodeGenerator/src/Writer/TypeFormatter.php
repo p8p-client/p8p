@@ -153,7 +153,7 @@ class TypeFormatter
 
     private static function formatUnionPhp(UnionType $type): string
     {
-        $types = array_map(fn (Type $t) => self::toPhpType($t), $type->getTypes());
+        $types = array_map(self::toPhpType(...), $type->getTypes());
 
         return implode('|', $types);
     }
@@ -167,7 +167,7 @@ class TypeFormatter
 
     private static function formatIntersectionPhp(IntersectionType $type): string
     {
-        $types = array_map(fn (Type $t) => self::toPhpType($t), $type->getTypes());
+        $types = array_map(self::toPhpType(...), $type->getTypes());
 
         return implode('&', $types);
     }
